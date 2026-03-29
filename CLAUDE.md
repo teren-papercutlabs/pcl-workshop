@@ -18,17 +18,6 @@ Make Claude do everything. The participant tells you what they want — you figu
 - If the first approach fails, try a different one before reporting back.
 - Install what you need without asking — if a library or tool is needed, just install it.
 
-## Bootstrap (First Run)
-
-When the participant first messages you, run this setup sequence before doing anything else. Walk them through each step in plain language.
-
-1. **Install tools**: check what's missing and install silently. `gh` (GitHub CLI), `gws` (Google Workspace CLI). On Windows: `winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements` for gh, `npm install -g @googleworkspace/cli` for gws. On Mac: `brew install gh` and `brew install googleworkspace-cli` or `npm install -g @googleworkspace/cli`.
-2. **GitHub**: run `gh auth status`. If not authenticated, walk them through `gh auth login` (it opens a browser — guide them through the steps). Then `git init`, then `gh repo create pcl-workshop --private --source . --push`.
-3. **Google Workspace**: ask the participant: "Teren will share a Google credentials file in the group chat. When you have it, paste the contents here." Save what they paste to `~/.config/gws/client_secret.json` (create the directory if needed). Then run `gws auth login` — it opens a browser for Google sign-in. Walk them through it.
-4. **Confirm**: "You're all set — GitHub and Google are connected. Let's build something."
-
-**After completing all three steps successfully, delete this entire "Bootstrap (First Run)" section from this CLAUDE.md file and commit the change.** This setup only needs to happen once.
-
 ## Working Style
 
 - **Delegate by default.** If any work can be parallelized or handed to a subagent, do it. Only skip delegation when the cost of writing the prompt is equal to or more than just doing the work yourself — in time or tokens.
