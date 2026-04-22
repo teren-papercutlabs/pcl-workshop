@@ -1,0 +1,16 @@
+{
+  "name": "pcl-workshop",
+  "owner": {
+    "name": "Papercut Labs",
+    "url": "https://papercut-labs.com"
+  },
+  "plugins": [
+    {
+      "name": "pcl-workshop",
+      "source": "./",
+      "description": "Papercut Labs workshop scaffolding — structured interview, solutioning, and retro skills for non-technical participants learning Claude Code.",
+      "version": "0.2.0",
+      "category": "workshop"
+    }
+  ]
+}

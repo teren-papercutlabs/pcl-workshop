@@ -1,0 +1,10 @@
+{
+  "name": "pcl-workshop",
+  "version": "0.2.0",
+  "description": "Papercut Labs workshop plugin. Structured interview → solutioning → build → retro loop for non-technical workshop participants. Installed during PcL consulting workshops to give Claude a shared scaffolding for the session.",
+  "author": {
+    "name": "Papercut Labs",
+    "url": "https://papercut-labs.com"
+  },
+  "homepage": "https://papercut-labs.com"
+}
