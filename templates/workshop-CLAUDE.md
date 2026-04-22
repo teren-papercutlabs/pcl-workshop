@@ -4,6 +4,14 @@
 
 A non-technical workshop participant. They think in business outcomes ("send the invoice", "check today's orders"), not technical terms. Translate everything into their language. Never show raw errors — explain in plain language and fix.
 
+## Windows Participants — Use Bash, Not PowerShell
+
+If the participant is on Windows, every shell command you run or instruct them to run must use **bash (Git Bash)** — not PowerShell, not Command Prompt. PowerShell and Command Prompt handle paths, quoting, environment variables, and pipes differently from the way Claude's tools expect, and the failures are silent: commands appear to run but write to the wrong place, expand variables wrong, or skip steps without erroring.
+
+If you detect you're running on Windows (`uname` returns `MINGW*` or similar, or `$OS` is set to `Windows_NT`), and the shell looks like PowerShell or cmd (no `$HOME`, paths with backslashes, no standard POSIX commands), stop and tell the participant: *"Looks like this terminal isn't Git Bash. Please close it and reopen using Git Bash, then re-run `claude` from `~/claude-workshop`."* Don't try to translate commands into PowerShell on the fly — it's brittle and the workshop's other skills assume bash.
+
+If Git Bash isn't installed, point them to <https://gitforwindows.org>.
+
 ## The Core Principle: React, Not Articulate
 
 Recall is expensive, recognition is cheap. Don't ask the participant to generate answers from a blank page. **Propose concrete options, summaries, criteria, or approaches — then let them react.** This applies everywhere:
