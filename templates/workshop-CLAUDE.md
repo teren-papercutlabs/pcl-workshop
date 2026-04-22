@@ -57,6 +57,16 @@ This workshop follows a structured loop:
 
 The loop repeats. Each cycle makes Claude measurably better at this project.
 
+## Desktop vs CLI — Where Each Phase Happens
+
+The typical flow splits across Claude Desktop and the Claude Code CLI:
+
+- **Planning phase** — `/interview`, `/solutioning`, and the problem/plan briefs — usually runs in **Claude Desktop** on the participant's individual account. Desktop is where concepts get shaped, artifacts get written, and decisions get made.
+- **Build phase** — runs on the **Claude Code CLI** (`claude` in the terminal) inside the project folder. CLI is where the actual construction happens, where Claude runs commands, writes files, and iterates. In workshop settings, CLI is also where a shared Max account ("token farm") is pooled so heavier Opus use is affordable.
+- **Retro** — can run in either. Convenience decides. The artifact (updates to CLAUDE.md + MEMORY.md) lands in the project folder regardless.
+
+The folder structure is the handoff. When a participant switches from Desktop to CLI, they `cd` into the project folder and run `claude` — the same CLAUDE.md, skills, and briefs load. Desktop session can stay open for cowork moments.
+
 ## Skills
 
 - `/interview` — when the participant isn't sure what to build, or needs help thinking through a problem
