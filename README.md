@@ -6,8 +6,9 @@ Papercut Labs' Claude Code skills for consulting workshops. Scaffolds a structur
 
 ## What's Inside
 
-Four workshop skills you'll use during the session:
+Five workshop skills you'll use during the session:
 
+- **`/disambiguate`** — when the problem itself is fuzzy and you can't yet describe what you want; converges through reaction to opinionated statements
 - **`/interview`** — structured discovery for the problem you want to solve
 - **`/solutioning`** — Claude proposes an approach plus concrete verification criteria
 - **`/retro`** — end-of-cycle reflection that improves the next round
