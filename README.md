@@ -93,19 +93,63 @@ claude
 
 Ask Claude:
 
-> Do you have the `/interview`, `/solutioning`, and `/retro` skills available?
+> Do you have the `/disambiguate`, `/interview`, `/solutioning`, and `/retro` skills available?
 
-Claude should confirm all three. If any are missing, see Troubleshooting below.
+Claude should confirm all four. If any are missing, see Troubleshooting below.
 
 ---
 
-## Step 7: Start the Workshop
+## Step 7 (Optional): Install gogcli for Google Workspace Access
+
+If your workshop project will touch Gmail, Calendar, Drive, Docs, Sheets, or any Google service, install **gogcli** so Claude can drive your Google account directly. Skip this if your project doesn't touch Google.
+
+**macOS:**
+
+```bash
+brew install steipete/tap/gogcli
+```
+
+**Windows (Git Bash):**
+
+```bash
+mkdir -p ~/.local/bin
+cd /tmp
+curl -LO https://github.com/steipete/gogcli/releases/latest/download/gogcli_0.13.0_windows_amd64.zip
+unzip gogcli_0.13.0_windows_amd64.zip
+mv gog.exe ~/.local/bin/gog.exe
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+(If a newer release exists, swap `0.13.0` for the latest version from <https://github.com/steipete/gogcli/releases>.)
+
+**Verify:**
+
+```bash
+gog --version
+```
+
+**Authenticate your Google account:**
+
+```bash
+gog auth add
+```
+
+This walks you through OAuth — you'll create a Google Cloud project, enable the APIs you need (Gmail / Calendar / Drive / Sheets), and download a credentials file. Full instructions: <https://github.com/steipete/gogcli#quick-start>. Allow ~10 minutes the first time.
+
+If your workshop project doesn't need Google access, skip this step entirely.
+
+---
+
+## Step 8: Start the Workshop
 
 Run:
 
 ```
 /interview
 ```
+
+(Or `/disambiguate` first if you have a fuzzy sense of need but can't yet describe what you want.)
 
 Claude will walk you through capturing your problem one question at a time. The rest of the loop (`/solutioning`, then build, then `/retro`) chains automatically — you'll be prompted for each step.
 
