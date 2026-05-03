@@ -1,181 +1,205 @@
 # pcl-workshop
 
-Papercut Labs' Claude Code skills for consulting workshops. Scaffolds a structured **interview → solutioning → build → retro** loop for non-technical participants.
+Papercut Labs workshop scaffolding for non-technical participants using Claude Code or Codex.
 
-> **Note to Sarah** — Sending this directly so the team has it before Friday's session. Pass it on as you see fit; happy to walk anyone through it. We're routing around the standard `/plugin marketplace` install because corporate-managed machines typically block it, so the steps below use a clone-the-repo approach instead. Apologies for skipping the usual review pass on the timing.
+The workshop loop is:
+
+1. **Disambiguate** — clarify the problem by reacting to concrete statements and short questions.
+2. **Solutioning** — propose one approach and concrete verification criteria.
+3. **Build** — implement against the agreed plan.
+4. **Retro** — encode what was learned so the next cycle improves.
 
 ## What's Inside
 
-Five workshop skills you'll use during the session:
+Core skills:
 
-- **`/disambiguate`** — when the problem itself is fuzzy and you can't yet describe what you want; converges through reaction to opinionated statements
-- **`/interview`** — structured discovery for the problem you want to solve
-- **`/solutioning`** — Claude proposes an approach plus concrete verification criteria
-- **`/retro`** — end-of-cycle reflection that improves the next round
-- **`/workshop-bootstrap`** — one-time scaffolder (the install steps below run this for you, so you won't need to call it directly)
+- **`/disambiguate`** — clarification and structured discovery; writes `problem-brief.md`.
+- **`/interview`** — backward-compatible alias for `/disambiguate`.
+- **`/solutioning`** — proposes approach plus verification criteria; writes `plan-brief.md`.
+- **`/retro`** — end-of-cycle reflection that improves the next round.
+- **`/workshop-bootstrap`** — one-time scaffolder for a workshop folder.
 
-Plus a small techniques library Claude consults on demand: working with platforms that have no API, keeping accuracy high, parallelising work across subagents.
+Reference techniques:
 
----
+- `techniques/no-api-workflows.md` — working with platforms that have no usable API.
+- `techniques/accuracy.md` — keeping output reliable.
+- `techniques/parallel-subagents.md` — parallelising independent work.
 
-## Step 0: Make Sure Claude Code Is Installed
+## Claude Code Install
 
-You should already have Claude Code on your machine from earlier in the workshop prep. If not, install it from <https://docs.claude.com/claude-code> before continuing.
+Claude Code supports plugin-style workshop setup. If plugin marketplace access is available, install through the marketplace flow used by the facilitator.
 
----
-
-## Step 1 (Windows Only): Install Git Bash
-
-Claude Code expects a bash-style shell. Windows defaults to **PowerShell** and **Command Prompt**, which behave differently — paths, quoting, and pipes don't match what Claude assumes, and you'll see commands silently misbehave.
-
-1. Download Git for Windows from **<https://gitforwindows.org/>**
-2. Run the installer. The defaults are fine — just click through.
-3. Once installed, right-click on your desktop or in any folder and confirm you see **"Git Bash Here"** in the menu.
-4. **Use Git Bash for every step below.** Not PowerShell. Not Command Prompt. If you accidentally open the wrong one, close it and open Git Bash.
-
-If you're on macOS, skip this step — the built-in Terminal already works.
-
----
-
-## Step 2: Make a Workshop Folder
-
-Open Git Bash (Windows) or Terminal (macOS) and run:
+If marketplace access is blocked, use the clone-and-copy setup:
 
 ```bash
-mkdir ~/claude-workshop
+mkdir -p ~/claude-workshop
 cd ~/claude-workshop
+git clone https://github.com/teren-papercutlabs/pcl-workshop.git
+cp pcl-workshop/templates/workshop-CLAUDE.md ./CLAUDE.md
+cp -r pcl-workshop/techniques ./
+mkdir -p .claude/skills
+cp -r pcl-workshop/skills/* .claude/skills/
 ```
 
-This is the folder you'll work in for the rest of the workshop.
+Restart Claude Code from the workshop folder so it picks up the local `CLAUDE.md` and skills.
 
----
+## Codex Install
 
-## Step 3: Start Claude
+Codex supports plugins through marketplaces and the Plugin Directory. The plugin payload is this repo's `.codex-plugin/plugin.json`; a marketplace file tells Codex where that payload lives.
 
-From inside `~/claude-workshop`:
+Inside the Codex CLI, open the plugin browser with:
+
+```text
+/plugins
+```
+
+From there, browse marketplace sources, install plugins, uninstall plugins, or toggle installed plugins on/off.
+
+This repo includes:
+
+- `.codex-plugin/plugin.json` — the Codex plugin manifest.
+- `.agents/plugins/marketplace.json` — a local marketplace entry for this plugin.
+
+### Option A: Add This Repo As A Git-Tracked Marketplace
+
+Add the GitHub repo as a marketplace source:
 
 ```bash
-claude
+codex plugin marketplace add teren-papercutlabs/pcl-workshop
 ```
 
----
-
-## Step 4: Install the Workshop Skills
-
-Once Claude is running, paste this in **exactly** as a single message:
-
-> Please set up this folder as a workshop folder. Steps:
-> 1. Clone <https://github.com/teren-papercutlabs/pcl-workshop.git> into a subfolder called `pcl-workshop`.
-> 2. Copy `pcl-workshop/templates/workshop-CLAUDE.md` to `./CLAUDE.md` here.
-> 3. Copy `pcl-workshop/techniques/` to `./techniques/` here.
-> 4. Create a `.claude/skills/` folder here and copy each skill folder from `pcl-workshop/skills/` into it.
-> 5. List everything you set up so I can confirm it landed.
-
-Claude will work through the list. If it asks for permission to run `git clone` or to write files, approve.
-
-When it confirms, **exit Claude** — type `/exit` or press `Ctrl+C` twice.
-
----
-
-## Step 5: Restart Claude
-
-Skills only load when Claude starts, so the restart is required:
+For a branch or pinned release:
 
 ```bash
-claude
+codex plugin marketplace add teren-papercutlabs/pcl-workshop --ref <branch-or-tag>
 ```
 
-(Make sure you're still in `~/claude-workshop`.)
+Then start a fresh Codex session and open the plugin browser:
 
----
+```text
+/plugins
+```
 
-## Step 6: Verify the Skills Loaded
+Choose the `PcL Workshop` marketplace, install `PcL Workshop`, then start a new Codex thread.
 
-Ask Claude:
-
-> Do you have the `/disambiguate`, `/interview`, `/solutioning`, and `/retro` skills available?
-
-Claude should confirm all four. If any are missing, see Troubleshooting below.
-
----
-
-## Step 7 (Optional): Install gogcli for Google Workspace Access
-
-If your workshop project will touch Gmail, Calendar, Drive, Docs, Sheets, or any Google service, install **gogcli** so Claude can drive your Google account directly. Skip this if your project doesn't touch Google.
-
-**macOS:**
+Useful marketplace maintenance commands:
 
 ```bash
-brew install steipete/tap/gogcli
+codex plugin marketplace upgrade
+codex plugin marketplace remove pcl-workshop
 ```
 
-**Windows (Git Bash):**
+Use this option when the workshop plugin is committed and pushed. `upgrade` works because Codex can fetch the marketplace from Git. If your installed CLI does not expose `codex plugin marketplace`, use Option B below.
+
+### Option B: Embed A Repo-Scoped Marketplace In One Project
+
+This is the clean workshop-project setup. The project carries a local marketplace plus the plugin payload, so Codex can discover the plugin from `/plugins` when started in the project folder.
+
+From inside the project folder:
 
 ```bash
-mkdir -p ~/.local/bin
-cd /tmp
-curl -LO https://github.com/steipete/gogcli/releases/latest/download/gogcli_0.13.0_windows_amd64.zip
-unzip gogcli_0.13.0_windows_amd64.zip
-mv gog.exe ~/.local/bin/gog.exe
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+WORKSHOP=~/Documents/Codex/pcl-workshop
+mkdir -p .agents/plugins plugins/pcl-workshop
+rsync -a --delete --exclude='.git' "$WORKSHOP/" plugins/pcl-workshop/
 ```
 
-(If a newer release exists, swap `0.13.0` for the latest version from <https://github.com/steipete/gogcli/releases>.)
+Create `.agents/plugins/marketplace.json`:
 
-**Verify:**
+```json
+{
+  "name": "local-workshop-plugins",
+  "interface": {
+    "displayName": "Local Workshop Plugins"
+  },
+  "plugins": [
+    {
+      "name": "pcl-workshop",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pcl-workshop"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
+```
+
+Then restart Codex from the project folder, open `/plugins`, choose the project marketplace, and install `PcL Workshop`.
+
+This option is intentionally local. If you update files by hand or rsync, restart Codex; `codex plugin marketplace upgrade` only applies to Git-backed marketplace sources.
+
+For this workshop setup, Teren's project is:
+
+```text
+/Users/teren/Documents/Codex/tria-codex-demo
+```
+
+### Last Resort: Copy Skills Directly
+
+Only use this if the installed Codex build cannot read plugin marketplaces.
 
 ```bash
-gog --version
+PROJECT=~/Documents/Codex/tria-codex-demo
+WORKSHOP=~/Documents/Codex/pcl-workshop
+
+cp -R "$WORKSHOP/techniques" "$PROJECT/"
+mkdir -p "$PROJECT/skills"
+cp -R "$WORKSHOP/skills/"* "$PROJECT/skills/"
 ```
 
-**Authenticate your Google account:**
+If the project has its own `AGENTS.md`, merge in the workshop sections instead of overwriting it:
+
+- `Clarification Flow`
+- `Local Skills`
+- `Techniques`
+
+The important line is that Codex should use `/disambiguate` when the user asks for `/interview`, clarification, or problem scoping.
+
+### Start Codex From The Project Folder
 
 ```bash
-gog auth add
+cd ~/Documents/Codex/tria-codex-demo
+codex
 ```
 
-This walks you through OAuth — you'll create a Google Cloud project, enable the APIs you need (Gmail / Calendar / Drive / Sheets), and download a credentials file. Full instructions: <https://github.com/steipete/gogcli#quick-start>. Allow ~10 minutes the first time.
+Prefer Option A for reusable installs across projects; use Option B for a self-contained workshop project; use direct skill copying only when marketplace support is missing.
 
-If your workshop project doesn't need Google access, skip this step entirely.
+## Start A Workshop Cycle
 
----
+After restarting inside the workshop folder, begin with:
 
-## Step 8: Start the Workshop
-
-Run:
-
-```
-/interview
+```text
+/disambiguate
 ```
 
-(Or `/disambiguate` first if you have a fuzzy sense of need but can't yet describe what you want.)
+`/interview` remains available as an alias for older instructions, but new workshop material should teach `/disambiguate`.
 
-Claude will walk you through capturing your problem one question at a time. The rest of the loop (`/solutioning`, then build, then `/retro`) chains automatically — you'll be prompted for each step.
+## Windows Note
 
----
+On Windows, use Git Bash rather than PowerShell or Command Prompt. The workshop skills assume bash-style paths and quoting.
+
+If Git Bash is missing, install it from <https://gitforwindows.org/>.
 
 ## Troubleshooting
 
-**`git: command not found` (Windows)**
-You're in PowerShell or Command Prompt, not Git Bash. Close the window and open Git Bash instead.
+**Slash commands or skills don't appear after install**
 
-**Slash commands (`/interview`, etc.) don't appear after install**
-You probably skipped the restart in Step 5. Exit Claude (`/exit`), restart with `claude`, and try again.
+Restart the agent from the workshop folder. Skills and project instructions are loaded at session start.
 
-**Claude can't `git clone` the repo**
-Likely a corporate proxy. Two fallbacks, in order:
-1. Ask Claude to use the GitHub CLI: *"Try `gh repo clone teren-papercutlabs/pcl-workshop` instead"*. Sometimes routes around proxy issues.
-2. Download the repo as a ZIP from <https://github.com/teren-papercutlabs/pcl-workshop> (green **Code** button → **Download ZIP**), unzip it into `~/claude-workshop/pcl-workshop`, then re-run the install paste from Step 4 (Claude will see the folder is already there and skip the clone).
+**Clone fails**
 
-**Claude can't write to `.claude/skills/`**
-Permissions issue. Ask Claude to show you the error, then either approve the write or paste the error to your facilitator.
+Try the GitHub CLI:
 
-**Anything weird that "looks like Claude is broken" on Windows**
-First check: are you in Git Bash? PowerShell will silently mis-handle paths and pipes and Claude won't always notice. Re-open in Git Bash.
+```bash
+gh repo clone teren-papercutlabs/pcl-workshop
+```
 
----
+If that also fails, download the ZIP from <https://github.com/teren-papercutlabs/pcl-workshop>, unzip it into the workshop folder, and repeat the copy steps.
 
-## Questions Before Friday
+**Codex does not expose plugin commands**
 
-Reach out to Teren directly if anything's unclear.
+Use the Codex clone-and-copy setup above. `codex mcp` is for external MCP servers, not skills/plugins.

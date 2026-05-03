@@ -1,39 +1,50 @@
 ---
 name: disambiguate
-description: "Clarify a fuzzy problem or design question by reacting to opinionated statements rather than answering open-ended questions. The agent proposes concrete statements; the participant reacts on a strongly-disagree → strongly-agree scale; convergence happens through accumulated reaction. Trigger for: /disambiguate, /disambig, disambiguate, help me figure out what I want, I know I want something but can't articulate it."
+description: "Clarify and scope a workshop problem before solutioning by using opinionated statements, short confirmation questions, and source artifacts. Use for fuzzy ideas, requirements discovery, former interview flows, and problem scoping regardless of specific wording. This replaces the old separate interview protocol."
 ---
 
 # Disambiguate
 
-When the participant has a fuzzy sense of need but can't articulate it, don't ask them to articulate it. Propose concrete opinionated statements and let them react. Recognition is easier than recall — they'll know what feels right faster than they can describe what they want.
+Use this for the whole clarification phase. The old split was `/disambiguate` for fuzzy problems and `/interview` for structured discovery; this skill now does both.
 
-This is a peer of `/interview`. Use `/interview` when you need to walk a problem through structured coverage (current state, constraints, artifacts). Use `/disambiguate` when the problem itself is unclear and the participant doesn't yet know what they want.
+The method is recognition over recall. Don't ask the participant to invent a complete answer from a blank page. Propose concrete interpretations, tradeoffs, and missing pieces; let them react and correct.
 
-## The method
+The output is `problem-brief.md`, which `/solutioning` uses next.
 
-Recognition over recall. Humans react faster and more accurately than they generate. "Does this feel right?" beats "what do you want?"
+## Rules
+
+- **One beat at a time.** One statement or one question, then wait.
+- **Start with a proposed understanding.** If the participant gives a rough ask, paraphrase it and ask what would materially change the work.
+- **Use statements before open questions.** "This is mainly about X, not Y" gets better signal than "what do you want?"
+- **Use artifacts.** If they mention emails, spreadsheets, screenshots, chats, or folders, ask for the specific example and inspect it.
+- **Cover practical constraints.** Current state, desired outcome, source artifacts, output format, external platforms, access limits, and what would make the answer wrong.
+- **No technical solutioning yet.** Capture the problem before choosing how to build.
 
 ## Procedure
 
-### 1. Frame
+### 1. Frame The Work
 
-State what you're trying to disambiguate in one sentence. No preamble.
+Restate what you think the participant wants in one sentence.
 
-> "Let's figure out what your [thing] needs to be."
+Then ask for confirmation or the single most important correction.
 
-### 2. Pick the altitude
+Example:
 
-Before generating any statements, decide where to start:
+> "You want help turning messy supplier RFQ inputs into a practical comparison and recommendation. The main uncertainty is which tradeoffs matter enough to change the recommendation. Is that the right shape?"
+
+### 2. Pick The Altitude
+
+Before generating statements, decide where to start:
 
 - **Outcome (why)** — "what's the underlying problem?" / "what changes if this works?" Start here when the participant has a fuzzy sense of need but hasn't articulated the problem.
 - **Shape** — "what does the solution feel like?" / "what does done look like?" Start here when the outcome is clear but the form isn't.
 - **Specifics** — "which feature?" / "which option?" Start here only when both outcome and shape are established.
 
-**Default: lead with outcome.** Even when the participant frames the question as a mechanism choice ("should I use X or Y?"), start with "this exists to achieve outcome Z" — let them confirm Z, then pull down. Shape-first easily produces "yes that's clean" without surfacing whether it serves the right outcome.
+Default to outcome. Pull down into shape and specifics only after the outcome is confirmed.
 
-### 3. Statements
+### 3. Generate Signal
 
-Two modes:
+Use one of two modes:
 
 - **Mode B (default)**: one statement at a time. Participant reacts on a 4-point scale:
   - **SD** — strongly disagree
@@ -44,41 +55,60 @@ Two modes:
 
 - **Mode A**: 4 mutually exclusive statements, participant picks the one that resonates most. Use only when narrowing between known alternatives, not when exploring.
 
-Each statement is concrete and opinionated. Bland statements produce no signal.
+Each statement must be concrete and opinionated. Bland statements produce no signal.
 
-### 4. Track and generate
+After each response, summarise the signal in one line and generate the next statement or question.
 
-After each response, summarise what's emerging in one line: "strong signal on X, no signal on Y." Generate the next statement targeting the open question your reading reveals.
+### 4. Cover The Practical Checklist
 
-### 5. Converge
+Before closing, make sure the brief has enough for `/solutioning`:
 
-Usually 4–6 statements is enough. When a clear picture has emerged, write a design brief.
+- **Problem** — what they are trying to solve, in their language.
+- **Current state** — how it works today and what breaks.
+- **Desired outcome** — what good looks like.
+- **Artifacts** — specific files, examples, exports, screenshots, chats, or folders.
+- **Inputs and outputs** — what goes in, what comes out, where the result lands.
+- **Constraints** — access, external platforms, APIs/no APIs, timing, accuracy requirements, review gates.
+- **Open questions** — what could still change the recommendation or build plan.
 
-Format: `disambiguate-brief.md` in the workshop folder.
+Skip irrelevant items. This is a judgment checklist, not a form.
+
+### 5. Write `problem-brief.md`
+
+When the problem is clear enough, write:
 
 ```markdown
-# Disambiguate Brief — <topic>
+# Problem Brief
 
-## Frame
-What we set out to clarify, in one sentence.
+## Problem
+One paragraph in the participant's language.
 
-## Decisions
-- <decision 1>: <strongly-held reaction>
-- <decision 2>: <strongly-held reaction>
-- ...
+## Current State
+What they do today, what breaks, what wastes time, or what creates risk.
+
+## Desired Outcome
+What good looks like.
+
+## Artifacts
+Files, examples, exports, screenshots, chats, folders, or source material referenced.
+
+## Constraints
+External platforms, access/API limits, data shape, output format, timing, review gates, accuracy needs.
 
 ## Open
-- <anything still ambiguous>
+Questions or assumptions still unresolved.
 
-## What this becomes
-What the participant can now do with this clarity (e.g. "now I can run /interview on this with concrete scope" or "now I can write the brief myself and skip the interview step").
+## Notes For Solutioning
+Signals that should shape the proposed approach.
 ```
 
-### 6. Hand off
+### 6. Hand Off
 
-Tell the participant what to do with the brief:
+Tell the participant:
 
-> "Disambiguate brief written. Most cases, the next step is `/interview` to walk through the problem in detail with the clarity we just got."
+> "Problem brief written. Moving to `/solutioning` now."
+
+Then invoke `/solutioning`. Don't make the participant type it.
 
 ## Statement types
 
@@ -102,3 +132,4 @@ Tell the participant what to do with the brief:
 - Don't propose 5+ statements at once. Mode B is one-at-a-time for a reason — each reaction should sharpen the next statement.
 - Don't pad with "great signal!" / "interesting!" between statements. Summarise the signal in one line, propose the next statement.
 - Don't converge prematurely. If reactions are still mixed at statement 4, keep going. Convergence is what you're listening for, not what you should fabricate.
+- Don't hand off to `/interview`. This skill has replaced the separate interview phase.

@@ -1,0 +1,20 @@
+{
+  "name": "pcl-workshop",
+  "interface": {
+    "displayName": "PcL Workshop"
+  },
+  "plugins": [
+    {
+      "name": "pcl-workshop",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

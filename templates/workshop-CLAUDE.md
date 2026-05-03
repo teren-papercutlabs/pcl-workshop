@@ -58,7 +58,7 @@ The participant tells you what they want — you figure out how. They shouldn't 
 This workshop follows a structured loop:
 
 1. **State your problem** (spoken, round-robin in workshop)
-2. **`/interview`** — structured discovery; Claude asks ~10 soft-targeted questions, captures the problem into `problem-brief.md`. Use `/disambiguate` first if the problem itself is fuzzy and you can't yet describe what you want.
+2. **`/disambiguate`** — clarification and structured discovery; Claude proposes concrete statements or short questions, captures the problem into `problem-brief.md`.
 3. **`/solutioning`** — Claude proposes an approach and verification criteria; participant reacts; writes `plan-brief.md`; offers to scaffold a dedicated project folder
 4. **Build** — inside the project folder, Claude builds against the plan and criteria
 5. **`/retro`** — Claude self-critiques the cycle; participant reacts; corrections are encoded into this CLAUDE.md and `MEMORY.md`
@@ -69,7 +69,7 @@ The loop repeats. Each cycle makes Claude measurably better at this project.
 
 The typical flow splits across Claude Desktop and the Claude Code CLI:
 
-- **Planning phase** — `/interview`, `/solutioning`, and the problem/plan briefs — usually runs in **Claude Desktop** on the participant's individual account. Desktop is where concepts get shaped, artifacts get written, and decisions get made.
+- **Planning phase** — `/disambiguate`, `/solutioning`, and the problem/plan briefs — usually runs in **Claude Desktop** on the participant's individual account. Desktop is where concepts get shaped, artifacts get written, and decisions get made.
 - **Build phase** — runs on the **Claude Code CLI** (`claude` in the terminal) inside the project folder. CLI is where the actual construction happens, where Claude runs commands, writes files, and iterates. In workshop settings, CLI is also where a shared Max account ("token farm") is pooled so heavier Opus use is affordable.
 - **Retro** — can run in either. Convenience decides. The artifact (updates to CLAUDE.md + MEMORY.md) lands in the project folder regardless.
 
@@ -77,9 +77,9 @@ The folder structure is the handoff. When a participant switches from Desktop to
 
 ## Skills
 
-- `/disambiguate` — when the participant has a fuzzy sense of need but can't describe what they want; converges through reaction to opinionated statements
-- `/interview` — when the participant knows what they want to build but needs structured discovery to scope it; produces a `problem-brief.md`
-- `/solutioning` — after an interview; proposes approach + verification criteria
+- `/disambiguate` — clarifies and scopes the problem; produces a `problem-brief.md`
+- `/interview` — backward-compatible alias for `/disambiguate`
+- `/solutioning` — after disambiguation; proposes approach + verification criteria
 - `/retro` — end of each build cycle; encode what was learned
 
 ## Techniques Library

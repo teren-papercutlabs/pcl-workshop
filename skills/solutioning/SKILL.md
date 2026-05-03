@@ -1,6 +1,6 @@
 ---
 name: solutioning
-description: "Propose an approach and verification criteria for a problem, based on an existing problem-brief. Claude drives — participant reacts. Trigger for: /solutioning, solutioning, propose a solution, what should we build, define done."
+description: "Propose an approach and verification criteria for a problem, based on an existing problem-brief from the disambiguation phase. Claude drives — participant reacts. Use for solution design, plan briefs, verification criteria, and build-shape decisions regardless of specific wording."
 ---
 
 # Solutioning
@@ -11,7 +11,7 @@ This is the **design decision phase**. There are 100 ways to solve any problem. 
 
 ## Input
 
-Read `problem-brief.md` in the workshop folder. If it's missing, ask the participant: "I can't find a `problem-brief.md`. Do you want to run `/interview` first, or do you have a brief to give me directly?"
+Read `problem-brief.md` in the workshop folder. If it's missing, ask the participant: "I can't find a `problem-brief.md`. Do you want to run `/disambiguate` first, or do you have a brief to give me directly?"
 
 ## Rules
 

@@ -1,0 +1,26 @@
+{
+  "name": "pcl-workshop",
+  "version": "0.2.0",
+  "description": "Papercut Labs workshop plugin. Structured disambiguation, solutioning, build, and retro workflows for non-technical workshop participants.",
+  "author": {
+    "name": "Papercut Labs",
+    "url": "https://papercut-labs.com"
+  },
+  "homepage": "https://papercut-labs.com",
+  "repository": "https://github.com/teren-papercutlabs/pcl-workshop",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PcL Workshop",
+    "shortDescription": "Workshop skills for disambiguation, solutioning, build planning, and retros.",
+    "longDescription": "Reusable Papercut Labs workshop scaffolding for non-technical participants using Codex.",
+    "developerName": "Papercut Labs",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://papercut-labs.com",
+    "defaultPrompt": [
+      "Use PcL Workshop to disambiguate this problem before solutioning.",
+      "Use PcL Workshop to turn this rough workflow idea into a problem brief."
+    ],
+    "brandColor": "#4682B4"
+  }
+}
