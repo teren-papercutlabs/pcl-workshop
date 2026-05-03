@@ -8,7 +8,7 @@
       "name": "pcl-workshop",
       "source": {
         "source": "local",
-        "path": "./"
+        "path": "./plugins/pcl-workshop"
       },
       "policy": {
         "installation": "AVAILABLE",
