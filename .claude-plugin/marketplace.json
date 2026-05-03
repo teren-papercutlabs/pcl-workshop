@@ -9,7 +9,7 @@
       "name": "pcl-workshop",
       "source": "./",
       "description": "Papercut Labs workshop scaffolding — structured disambiguation, solutioning, and retro skills for non-technical participants learning Claude Code.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "workshop"
     }
   ]

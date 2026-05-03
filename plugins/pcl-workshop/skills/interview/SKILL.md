@@ -11,6 +11,6 @@ Use `../disambiguate/SKILL.md` as the source of truth. Do not run a second, sepa
 
 If the participant invoked `/interview`, say:
 
-> "I'll use the disambiguation flow for this: first I’ll restate the problem, then I’ll propose concrete statements or short questions for you to react to."
+> "I'm using the workshop clarification flow now. `/interview` and `/disambiguate` use the same flow here."
 
 Then follow `/disambiguate` and write `problem-brief.md`.

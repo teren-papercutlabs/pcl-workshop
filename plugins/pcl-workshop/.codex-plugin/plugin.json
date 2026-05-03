@@ -1,6 +1,6 @@
 {
   "name": "pcl-workshop",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Papercut Labs workshop plugin. Structured disambiguation, solutioning, build, and retro workflows for non-technical workshop participants.",
   "author": {
     "name": "Papercut Labs",

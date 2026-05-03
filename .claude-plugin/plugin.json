@@ -1,6 +1,6 @@
 {
   "name": "pcl-workshop",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Papercut Labs workshop plugin. Structured disambiguation → solutioning → build → retro loop for non-technical workshop participants. Installed during PcL consulting workshops to give Claude a shared scaffolding for the session.",
   "author": {
     "name": "Papercut Labs",

@@ -5,7 +5,7 @@ Papercut Labs workshop scaffolding for non-technical participants using Claude C
 The workshop loop is:
 
 1. **Disambiguate** — clarify the problem by reacting to concrete statements and short questions.
-2. **Solutioning** — propose one approach and concrete verification criteria.
+2. **Solutioning** — propose a deliverable shape, output format, plan, and concrete checks.
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned so the next cycle improves.
 
@@ -15,7 +15,7 @@ Core skills:
 
 - **`/disambiguate`** — clarification and structured discovery; writes `problem-brief.md`.
 - **`/interview`** — backward-compatible alias for `/disambiguate`.
-- **`/solutioning`** — proposes approach plus verification criteria; writes `plan-brief.md`.
+- **`/solutioning`** — proposes deliverable shape, output format, plan, and checks; writes `plan-brief.md`.
 - **`/retro`** — end-of-cycle reflection that improves the next round.
 - **`/workshop-bootstrap`** — one-time scaffolder for a workshop folder.
 

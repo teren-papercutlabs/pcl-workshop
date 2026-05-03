@@ -1,6 +1,6 @@
 ---
 name: disambiguate
-description: "Clarify and scope a workshop problem before solutioning by using opinionated statements, short confirmation questions, and source artifacts. Use for fuzzy ideas, requirements discovery, former interview flows, and problem scoping regardless of specific wording. This replaces the old separate interview protocol."
+description: "Clarify and scope a workshop problem before solutioning by using opinionated statements, short confirmation questions, and source files/examples. Use for fuzzy ideas, requirements discovery, former interview flows, and problem scoping regardless of specific wording. This replaces the old separate interview protocol."
 ---
 
 # Disambiguate
@@ -13,16 +13,21 @@ The output is `problem-brief.md`, which `/solutioning` uses next.
 
 ## Rules
 
+- **Make the phase visible.** Start by saying plainly: "I'm using the workshop clarification flow now." If they invoked `/interview`, say that `/interview` uses the same clarification flow.
 - **One beat at a time.** One statement or one question, then wait.
 - **Start with a proposed understanding.** If the participant gives a rough ask, paraphrase it and ask what would materially change the work.
 - **Use statements before open questions.** "This is mainly about X, not Y" gets better signal than "what do you want?"
-- **Use artifacts.** If they mention emails, spreadsheets, screenshots, chats, or folders, ask for the specific example and inspect it.
-- **Cover practical constraints.** Current state, desired outcome, source artifacts, output format, external platforms, access limits, and what would make the answer wrong.
+- **Ask for real examples early.** If they mention emails, spreadsheets, screenshots, chats, documents, folders, or other real work, ask for one specific example and inspect it before continuing abstract discussion.
+- **Cover practical constraints.** Current state, what good looks like, source files/examples, output format, external platforms, access limits, and what would make the answer wrong.
 - **No technical solutioning yet.** Capture the problem before choosing how to build.
 
 ## Procedure
 
 ### 1. Frame The Work
+
+Say:
+
+> "I'm using the workshop clarification flow now."
 
 Restate what you think the participant wants in one sentence.
 
@@ -31,6 +36,10 @@ Then ask for confirmation or the single most important correction.
 Example:
 
 > "You want help turning messy supplier RFQ inputs into a practical comparison and recommendation. The main uncertainty is which tradeoffs matter enough to change the recommendation. Is that the right shape?"
+
+If the participant is describing existing work, ask for a real example before more statements:
+
+> "Send me one example email, sheet, screenshot, or folder. I'll read it first, then we continue."
 
 ### 2. Pick The Altitude
 
@@ -65,9 +74,9 @@ Before closing, make sure the brief has enough for `/solutioning`:
 
 - **Problem** — what they are trying to solve, in their language.
 - **Current state** — how it works today and what breaks.
-- **Desired outcome** — what good looks like.
-- **Artifacts** — specific files, examples, exports, screenshots, chats, or folders.
-- **Inputs and outputs** — what goes in, what comes out, where the result lands.
+- **What good looks like** — the useful end state.
+- **Examples/files** — specific files, exports, screenshots, chats, folders, or source material.
+- **Inputs and outputs** — what goes in, what comes out, where the result lands, and what file/app format matters.
 - **Constraints** — access, external platforms, APIs/no APIs, timing, accuracy requirements, review gates.
 - **Open questions** — what could still change the recommendation or build plan.
 
@@ -89,7 +98,7 @@ What they do today, what breaks, what wastes time, or what creates risk.
 ## Desired Outcome
 What good looks like.
 
-## Artifacts
+## Examples And Files
 Files, examples, exports, screenshots, chats, folders, or source material referenced.
 
 ## Constraints
@@ -99,7 +108,7 @@ External platforms, access/API limits, data shape, output format, timing, review
 Questions or assumptions still unresolved.
 
 ## Notes For Solutioning
-Signals that should shape the proposed approach.
+Signals that should shape the plan.
 ```
 
 ### 6. Hand Off
@@ -108,7 +117,11 @@ Tell the participant:
 
 > "Problem brief written. Moving to `/solutioning` now."
 
-Then invoke `/solutioning`. Don't make the participant type it.
+Then continue into the solutioning skill yourself. Don't make the participant type it.
+
+If the runtime does not provide a callable `/solutioning` command, read `skills/solutioning/SKILL.md` from the installed plugin or local workshop folder and follow it in the same turn.
+
+Do not stop with a list of recommended next actions unless the participant explicitly asks to pause before solutioning.
 
 ## Statement types
 

@@ -25,7 +25,7 @@ Look back across the cycle. Output a concrete self-critique in two short lists:
 
 **What worked:**
 - Specific things that went smoothly and should be reinforced.
-- "Running the verification criteria as a literal test-run at the end caught the cancelled-orders bug."
+- "Running the checks as a literal test-run at the end caught the cancelled-orders bug."
 
 Keep each list to 3–5 items. Don't pad.
 
