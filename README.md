@@ -45,7 +45,15 @@ Restart Claude Code from the workshop folder so it picks up the local `CLAUDE.md
 
 ## Codex Install
 
-Codex supports plugins through marketplaces and the Plugin Directory. The plugin payload is this repo's `.codex-plugin/plugin.json`; a marketplace file tells Codex where that payload lives.
+Codex supports plugins through marketplaces and the Plugin Directory. Use the Git-backed marketplace flow when possible; it is the most repeatable setup across projects.
+
+The marketplace root and plugin payload are separate:
+
+- `.agents/plugins/marketplace.json` — the marketplace entry Codex reads.
+- `plugins/pcl-workshop/.codex-plugin/plugin.json` — the Codex plugin manifest.
+- `plugins/pcl-workshop/skills/` — the workshop skills loaded after the plugin is installed and a new thread starts.
+
+Do not point the marketplace at `./`. Codex rejects root plugin paths with `local plugin source path must not be empty`. The marketplace entry must point at a non-root plugin folder, currently `./plugins/pcl-workshop`.
 
 Inside the Codex CLI, open the plugin browser with:
 
@@ -57,7 +65,8 @@ From there, browse marketplace sources, install plugins, uninstall plugins, or t
 
 This repo includes:
 
-- `.codex-plugin/plugin.json` — the Codex plugin manifest.
+- `plugins/pcl-workshop/.codex-plugin/plugin.json` — the Codex plugin manifest.
+- `plugins/pcl-workshop/skills/` — the Codex skill payload.
 - `.agents/plugins/marketplace.json` — a local marketplace entry for this plugin.
 
 ### Option A: Add This Repo As A Git-Tracked Marketplace
@@ -65,22 +74,22 @@ This repo includes:
 Add the GitHub repo as a marketplace source:
 
 ```bash
-codex plugin marketplace add teren-papercutlabs/pcl-workshop
+codex plugin marketplace add teren-papercutlabs/pcl-workshop --ref codex/codex-plugin-marketplace
 ```
 
-For a branch or pinned release:
+If the marketplace is already registered, refresh it:
 
 ```bash
-codex plugin marketplace add teren-papercutlabs/pcl-workshop --ref <branch-or-tag>
+codex plugin marketplace upgrade pcl-workshop
 ```
 
-Then start a fresh Codex session and open the plugin browser:
+Then open the plugin browser:
 
 ```text
 /plugins
 ```
 
-Choose the `PcL Workshop` marketplace, install `PcL Workshop`, then start a new Codex thread.
+Choose the `pcl-workshop` marketplace, install `PcL Workshop`, enable it if needed, then start a new Codex thread. The plugin browser shows `PcL Workshop`; it does not list `disambiguate` as a standalone plugin. After restart, `/disambiguate` is available as a skill from the installed plugin.
 
 Useful marketplace maintenance commands:
 
@@ -91,6 +100,14 @@ codex plugin marketplace remove pcl-workshop
 
 Use this option when the workshop plugin is committed and pushed. `upgrade` works because Codex can fetch the marketplace from Git. If your installed CLI does not expose `codex plugin marketplace`, use Option B below.
 
+To verify the install from the terminal:
+
+```bash
+find ~/.codex/plugins/cache/pcl-workshop/pcl-workshop -path '*/skills/disambiguate/SKILL.md' -print
+```
+
+Expected result: a path under `~/.codex/plugins/cache/pcl-workshop/pcl-workshop/<version>/skills/disambiguate/SKILL.md`.
+
 ### Option B: Embed A Repo-Scoped Marketplace In One Project
 
 This is the clean workshop-project setup. The project carries a local marketplace plus the plugin payload, so Codex can discover the plugin from `/plugins` when started in the project folder.
@@ -100,7 +117,7 @@ From inside the project folder:
 ```bash
 WORKSHOP=~/Documents/Codex/pcl-workshop
 mkdir -p .agents/plugins plugins/pcl-workshop
-rsync -a --delete --exclude='.git' "$WORKSHOP/" plugins/pcl-workshop/
+rsync -a --delete --exclude='.git' "$WORKSHOP/plugins/pcl-workshop/" plugins/pcl-workshop/
 ```
 
 Create `.agents/plugins/marketplace.json`:
