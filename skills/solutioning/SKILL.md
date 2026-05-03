@@ -1,6 +1,6 @@
 ---
 name: solutioning
-description: "Propose a deliverable shape, approach, output format, and practical checks for a problem based on an existing problem-brief from the clarification phase. Use for solution design, plan briefs, build-shape decisions, output-format decisions, and post-disambiguation planning regardless of specific wording."
+description: "Propose a deliverable shape, approach, output format, and practical checks for a problem based on an existing problem-brief from the interview phase. Use for solution design, plan briefs, build-shape decisions, output-format decisions, and post-interview planning regardless of specific wording."
 ---
 
 # Solutioning
@@ -11,7 +11,7 @@ This is the **design decision phase**. There are 100 ways to solve any problem. 
 
 ## Input
 
-Read `problem-brief.md` in the workshop folder. If it's missing, ask the participant: "I can't find a `problem-brief.md`. Do you want to run `/disambiguate` first, or do you have a brief to give me directly?"
+Read `problem-brief.md` in the workshop folder. If it's missing, ask the participant: "I can't find a `problem-brief.md`. Do you want to run `/interview` first, or do you have a brief to give me directly?"
 
 ## Rules
 

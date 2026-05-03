@@ -43,7 +43,7 @@ As you do this, narrate a short orientation — one sentence per section. Not a 
 - **Voice rules** — concise, no preambles, react-not-articulate.
 - **The Rule** — Claude does everything, participant doesn't type commands.
 - **Working Style** — delegate, scripts-over-brain, clarify-by-proposing, commit often.
-- **The Loop** — disambiguate → solutioning → build → retro.
+- **The Loop** — interview → solutioning → build → retro.
 - **Techniques** — reference library consulted when topics come up.
 
 ### 4. Copy the techniques library
@@ -62,9 +62,9 @@ Don't walk through their contents now. They're consulted on demand.
 
 ### 5. Tell them what's next
 
-> "Workshop folder is ready. Restart Claude in this folder so it picks up CLAUDE.md, then run `/disambiguate` when you want to work through your first problem."
+> "Workshop folder is ready. Restart Claude in this folder so it picks up CLAUDE.md, then run `/interview` when you want to work through your first problem."
 
-Don't run `/disambiguate` in this session. The participant needs to restart so CLAUDE.md is loaded.
+Don't run `/interview` in this session. The participant needs to restart so CLAUDE.md is loaded.
 
 ### 6. Commit (optional)
 
@@ -83,10 +83,10 @@ After this runs, the workshop folder contains:
     └── parallel-subagents.md
 ```
 
-Nothing else. `/disambiguate` and `/solutioning` will add `problem-brief.md`, `plan-brief.md`, and a project subfolder later.
+Nothing else. `/interview` and `/solutioning` will add `problem-brief.md`, `plan-brief.md`, and a project subfolder later.
 
 ## Do Not
 
 - Do not `git init` unsolicited
 - Do not create extra files (README.md, .gitignore, etc.)
-- Do not run `/disambiguate` immediately after — restart required
+- Do not run `/interview` immediately after — restart required

@@ -24,7 +24,7 @@ The agreed-on definition of done. Build against these. Before declaring done, ru
 
 ## References
 
-- `../problem-brief.md` — the problem we captured during `/disambiguate`
+- `../problem-brief.md` — the problem we captured during `/interview`
 - `../plan-brief.md` — the approach we agreed on during `/solutioning`
 - `../techniques/` — reference library, consult when participant asks about a relevant topic
 

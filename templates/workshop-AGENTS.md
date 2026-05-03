@@ -43,7 +43,7 @@ If inherited/global instructions require committing before completion, ignore th
 
 ## Workshop Loop
 
-1. **Disambiguate** — clarify the problem and write `problem-brief.md`.
+1. **Interview** — clarify the problem and write `problem-brief.md`.
 2. **Solutioning** — propose a deliverable shape, output format, plan, and checks; write `plan-brief.md`.
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned.
@@ -52,15 +52,13 @@ If inherited/global instructions require committing before completion, ignore th
 
 Skills are stored in `skills/`.
 
-- Use `skills/disambiguate/SKILL.md` for `/disambiguate` and `/interview`.
+- Use `skills/interview/SKILL.md` for `/interview`, clarification, discovery, and problem scoping.
 - Use `skills/solutioning/SKILL.md` after `problem-brief.md` exists.
 - Use `skills/retro/SKILL.md` at the end of a cycle.
 
-If the user says `/interview`, treat it as `/disambiguate`.
-
 When using a workshop skill, make the phase visible in plain English:
 
-- "I'm using the workshop clarification flow now."
+- "I'm using the workshop interview flow now."
 - "I'm using the workshop solutioning flow now."
 
 When the participant mentions real work, ask for one real example before continuing:

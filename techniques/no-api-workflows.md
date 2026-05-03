@@ -11,7 +11,7 @@ The participant has an external platform in their workflow (internal tool, third
 - The API exists but is undocumented and reverse-engineering docs isn't worth it
 - The auth is SSO/browser-based and can't easily be replicated with API keys
 
-Signal from `/disambiguate`: the brief flagged "external platform, no API access".
+Signal from `/interview`: the brief flagged "external platform, no API access".
 
 ## The Technique: HAR Capture and Replay
 

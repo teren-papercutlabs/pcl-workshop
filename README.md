@@ -4,7 +4,7 @@ Papercut Labs workshop scaffolding for non-technical participants using Claude C
 
 The workshop loop is:
 
-1. **Disambiguate** — clarify the problem by reacting to concrete statements and short questions.
+1. **Interview** — clarify the problem by reacting to concrete statements and short questions.
 2. **Solutioning** — propose a deliverable shape, output format, plan, and concrete checks.
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned so the next cycle improves.
@@ -13,8 +13,7 @@ The workshop loop is:
 
 Core skills:
 
-- **`/disambiguate`** — clarification and structured discovery; writes `problem-brief.md`.
-- **`/interview`** — backward-compatible alias for `/disambiguate`.
+- **`/interview`** — clarification and structured discovery; writes `problem-brief.md`.
 - **`/solutioning`** — proposes deliverable shape, output format, plan, and checks; writes `plan-brief.md`.
 - **`/retro`** — end-of-cycle reflection that improves the next round.
 - **`/workshop-bootstrap`** — one-time scaffolder for a workshop folder.
@@ -89,7 +88,7 @@ Then open the plugin browser:
 /plugins
 ```
 
-Choose the `pcl-workshop` marketplace, install `PcL Workshop`, enable it if needed, then start a new Codex thread. The plugin browser shows `PcL Workshop`; it does not list `disambiguate` as a standalone plugin. After restart, `/disambiguate` is available as a skill from the installed plugin.
+Choose the `pcl-workshop` marketplace, install `PcL Workshop`, enable it if needed, then start a new Codex thread. The plugin browser shows `PcL Workshop`; it does not list `interview` as a standalone plugin. After restart, `/interview` is available as a skill from the installed plugin.
 
 Useful marketplace maintenance commands:
 
@@ -103,10 +102,10 @@ Use this option when the workshop plugin is committed and pushed. `upgrade` work
 To verify the install from the terminal:
 
 ```bash
-find ~/.codex/plugins/cache/pcl-workshop/pcl-workshop -path '*/skills/disambiguate/SKILL.md' -print
+find ~/.codex/plugins/cache/pcl-workshop/pcl-workshop -path '*/skills/interview/SKILL.md' -print
 ```
 
-Expected result: a path under `~/.codex/plugins/cache/pcl-workshop/pcl-workshop/<version>/skills/disambiguate/SKILL.md`.
+Expected result: a path under `~/.codex/plugins/cache/pcl-workshop/pcl-workshop/<version>/skills/interview/SKILL.md`.
 
 ### Option B: Embed A Repo-Scoped Marketplace In One Project
 
@@ -174,7 +173,7 @@ If the project has its own `AGENTS.md`, merge in the workshop sections instead o
 - `Local Skills`
 - `Techniques`
 
-The important line is that Codex should use `/disambiguate` when the user asks for `/interview`, clarification, or problem scoping.
+The important line is that Codex should use `/interview` when the user asks for clarification, discovery, or problem scoping.
 
 ### Start Codex From The Project Folder
 
@@ -190,10 +189,10 @@ Prefer Option A for reusable installs across projects; use Option B for a self-c
 After restarting inside the workshop folder, begin with:
 
 ```text
-/disambiguate
+/interview
 ```
 
-`/interview` remains available as an alias for older instructions, but new workshop material should teach `/disambiguate`.
+New workshop material should teach `/interview` as the clarification flow.
 
 ## Windows Note
 

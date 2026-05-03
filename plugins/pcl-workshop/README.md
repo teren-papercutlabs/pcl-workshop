@@ -4,7 +4,7 @@ Papercut Labs workshop scaffolding for non-technical participants using Claude C
 
 The workshop loop is:
 
-1. **Disambiguate** — clarify the problem by reacting to concrete statements and short questions.
+1. **Interview** — clarify the problem by reacting to concrete statements and short questions.
 2. **Solutioning** — propose a deliverable shape, output format, plan, and concrete checks.
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned so the next cycle improves.
@@ -13,8 +13,7 @@ The workshop loop is:
 
 Core skills:
 
-- **`/disambiguate`** — clarification and structured discovery; writes `problem-brief.md`.
-- **`/interview`** — backward-compatible alias for `/disambiguate`.
+- **`/interview`** — clarification and structured discovery; writes `problem-brief.md`.
 - **`/solutioning`** — proposes deliverable shape, output format, plan, and checks; writes `plan-brief.md`.
 - **`/retro`** — end-of-cycle reflection that improves the next round.
 - **`/workshop-bootstrap`** — one-time scaffolder for a workshop folder.
@@ -157,7 +156,7 @@ If the project has its own `AGENTS.md`, merge in the workshop sections instead o
 - `Local Skills`
 - `Techniques`
 
-The important line is that Codex should use `/disambiguate` when the user asks for `/interview`, clarification, or problem scoping.
+The important line is that Codex should use `/interview` when the user asks for clarification, discovery, or problem scoping.
 
 ### Start Codex From The Project Folder
 
@@ -173,10 +172,10 @@ Prefer Option A for reusable installs across projects; use Option B for a self-c
 After restarting inside the workshop folder, begin with:
 
 ```text
-/disambiguate
+/interview
 ```
 
-`/interview` remains available as an alias for older instructions, but new workshop material should teach `/disambiguate`.
+New workshop material should teach `/interview` as the clarification flow.
 
 ## Windows Note
 
