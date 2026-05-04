@@ -98,35 +98,21 @@ What file/app format the participant needs, and any format assumption still to c
 3. …
 ```
 
-### 5. Offer the project folder
+### 5. Hand off to build
 
 Close with:
 
-> "Plan is written. Want me to set up a dedicated project folder? That gives this project its own space with its own `CLAUDE.md` that has the approach and criteria baked in — useful when you come back to this later or want to build multiple things in parallel."
+> "Plan is written. Ready to build when you are. The plan-brief is your reference — when you say go, I'll start working through it."
 
-If they say yes:
+Default: build in the same workshop folder. The participant has `problem-brief.md` and `plan-brief.md` here; that's enough context. Don't create a sub-project folder unless the participant explicitly asks for one.
 
-1. Ask for a project folder name if not obvious from the plan ("shopify-tuesday-report" or similar). Propose a name first — react-not-articulate.
-2. `mkdir <project-name>` as a subfolder of the workshop folder.
-3. Locate the plugin template:
+If they ask for a separate folder:
 
-   ```bash
-   PLUGIN_ROOT=$(find ~/.claude/plugins -maxdepth 6 -type f -name plugin.json -exec grep -l '"name": "pcl-workshop"' {} \; 2>/dev/null | head -1 | xargs dirname | xargs dirname)
-   ```
+1. Propose a folder name based on the plan (e.g. "tria-rfq-comparator"). Get a yes.
+2. `mkdir <project-name>` and `cp plan-brief.md problem-brief.md <project-name>/`.
+3. Tell them: "Folder is at `<workshop>/<project-name>` with the briefs copied in. Build there."
 
-4. Read `$PLUGIN_ROOT/templates/project-CLAUDE.md`, substitute the placeholders with values derived from the plan-brief:
-
-   - `{{PROJECT_NAME}}` → human-readable project name
-   - `{{APPROACH_SUMMARY}}` → the approach text from `plan-brief.md`
-   - `{{KEY_STEPS}}` → numbered list from the plan
-   - `{{TECH_TOOLS}}` → tech/tools from the plan
-   - `{{VERIFICATION_CRITERIA}}` → numbered criteria from the plan
-
-5. Write the filled template to `<project-name>/CLAUDE.md`.
-
-6. Tell them: "Project folder is at `<workshop>/<project-name>`. When you're ready to build, `cd` into it and start a fresh Claude session so it picks up the project-specific CLAUDE.md."
-
-If they say no → stop. They can build in the workshop folder directly, or run `/solutioning` again later for a different framing.
+Do not scaffold extra files. The briefs are the spec.
 
 ## Do Not
 

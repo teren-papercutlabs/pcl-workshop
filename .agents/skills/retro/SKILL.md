@@ -1,6 +1,6 @@
 ---
 name: retro
-description: "End-of-cycle retrospective. Claude self-critiques, participant reacts, encode learnings into CLAUDE.md and MEMORY.md immediately. Trigger for: /retro, retrospective, wrap up, what did we learn, end of cycle."
+description: "End-of-cycle retrospective. The agent self-critiques, participant reacts, encode learnings into AGENTS.md and MEMORY.md immediately. Trigger for: /retro, retrospective, wrap up, what did we learn, end of cycle."
 ---
 
 # Retrospective — The Improvement Loop
@@ -45,7 +45,7 @@ Take what they add seriously. They see things you don't.
 For each item (yours + theirs), ask:
 
 **Was there context I should have had permanently?**
-→ Goes into `CLAUDE.md`. Constraints, preferences, domain knowledge, working style. If you had to be told something you should have known, that's a `CLAUDE.md` gap.
+→ Goes into `AGENTS.md`. Constraints, preferences, domain knowledge, working style. If you had to be told something you should have known, that's a `AGENTS.md` gap.
 
 **Was there a fact about this project I should remember?**
 → Goes into `MEMORY.md`. Things like: "The Shopify tenant is on the 2024-10 API version"; "Tuesday report lands in Sheet tab 'Weekly Stock'"; "We tried approach X and it failed because Y". Historical / factual context that future cycles need.
@@ -65,11 +65,11 @@ Every rule or fact must be **general, not specific to this one case**:
 
 ### 5. Encode immediately
 
-Make the changes NOW. Do not just list what should change. Edit `CLAUDE.md`. Append to `MEMORY.md`. Write the skill file. Then commit.
+Make the changes NOW. Do not just list what should change. Edit `AGENTS.md`. Append to `MEMORY.md`. Write the skill file. Then commit.
 
 Read back to the participant what you changed, briefly:
 
-> "Updated CLAUDE.md with a 'Order status filtering' section. Added to MEMORY.md: Shopify API version + cancelled-order handling. Committed."
+> "Updated AGENTS.md with a 'Order status filtering' section. Added to MEMORY.md: Shopify API version + cancelled-order handling. Committed."
 
 ### 6. Commit
 
@@ -82,7 +82,7 @@ If `MEMORY.md` doesn't exist yet, create it with:
 ```markdown
 # Project Memory
 
-Factual and historical context about this project. Claude reads this alongside `CLAUDE.md` to stay grounded.
+Factual and historical context about this project. Claude reads this alongside `AGENTS.md` to stay grounded.
 
 ## Key Facts
 
@@ -110,5 +110,5 @@ The changed files are the real output, not the summary.
 ## Do Not
 
 - Do not skip the self-critique step. If you've genuinely got nothing, say so explicitly ("No specific mistakes this cycle — it was tight") so the participant can react with "actually, you missed X".
-- Do not write a retro document as the output. The codified changes to `CLAUDE.md` / `MEMORY.md` ARE the output. No standalone retro-notes file.
+- Do not write a retro document as the output. The codified changes to `AGENTS.md` / `MEMORY.md` ARE the output. No standalone retro-notes file.
 - Do not retroactively praise the participant or yourself. Retro is for encoding, not morale.
