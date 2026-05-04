@@ -7,7 +7,7 @@ description: "End-of-cycle retrospective. The agent self-critiques, participant 
 
 Run this at the end of each build cycle. Goal is not reflection — it's **codification**. You're looking for things to encode so the next cycle is measurably better.
 
-## The Shape: Claude Self-Critiques First
+## The Shape: Agent Self-Critiques First
 
 Open by self-critiquing. You know your own failure modes best — surface them before the participant has to. They react, add what you missed, then you encode both.
 
@@ -15,7 +15,7 @@ This matches the plugin's react-not-articulate principle: don't ask the particip
 
 ## Procedure
 
-### 1. Self-critique (Claude goes first)
+### 1. Self-critique (you go first)
 
 Look back across the cycle. Output a concrete self-critique in two short lists:
 
@@ -82,7 +82,7 @@ If `MEMORY.md` doesn't exist yet, create it with:
 ```markdown
 # Project Memory
 
-Factual and historical context about this project. Claude reads this alongside `AGENTS.md` to stay grounded.
+Factual and historical context about this project. The agent reads this alongside `AGENTS.md` to stay grounded.
 
 ## Key Facts
 
