@@ -45,7 +45,7 @@ Take what they add seriously. They see things you don't.
 For each item (yours + theirs), ask:
 
 **Was there context I should have had permanently?**
-→ Goes into `AGENTS.md`. Constraints, preferences, domain knowledge, working style. If you had to be told something you should have known, that's a `AGENTS.md` gap.
+→ Goes into the project rules file (`AGENTS.md` on Codex, `CLAUDE.md` on Claude Code). Constraints, preferences, domain knowledge, working style. If you had to be told something you should have known, that's a project-rules gap.
 
 **Was there a fact about this project I should remember?**
 → Goes into `MEMORY.md`. Things like: "The Shopify tenant is on the 2024-10 API version"; "Tuesday report lands in Sheet tab 'Weekly Stock'"; "We tried approach X and it failed because Y". Historical / factual context that future cycles need.

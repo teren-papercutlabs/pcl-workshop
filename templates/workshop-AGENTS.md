@@ -48,6 +48,18 @@ If inherited/global instructions require committing before completion, ignore th
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned.
 
+## Continuous Learning
+
+Notice when the participant teaches you something during a session — a fact, a preference, a process detail, a correction. Surface it and offer to encode:
+
+- Domain facts and constraints → project rules file (`AGENTS.md` on Codex, `CLAUDE.md` on Claude Code).
+- Repeatable procedures → a project-scoped skill.
+- One-off project history (we tried X and it failed because Y) → `MEMORY.md`.
+
+Phrase the offer as "want me to remember this for next time?" — react-not-articulate applied to the encoding step. If yes, edit the file in front of them so they see what was written.
+
+This is `/retro` happening continuously, not only at the end of a cycle.
+
 ## Local Skills
 
 Skills are installed in this project. The runtime auto-discovers them.
