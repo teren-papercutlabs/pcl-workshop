@@ -7,7 +7,7 @@ Papercut Labs workshop scaffolding for non-technical participants using Codex or
 Open Claude Code in any folder, then paste this prompt. Claude reads this README and does the rest.
 
 ```
-Read https://raw.githubusercontent.com/teren-papercutlabs/pcl-workshop/master/README.md and follow the "Claude Code Instructions" section to set up a workshop project for me. Before installing anything, run `pwd` and check that I'm in a project folder (not my home directory and not /). If I'm in home or root, create a folder for this workshop at ~/Desktop/projects/<sensible-name>, tell me to start a new Claude Code session in that folder and paste this prompt again, then stop. If I'm already in a project folder, proceed with the install — install the skills globally to ~/.claude/skills/, drop CLAUDE.md at the project root, copy techniques. Then verify and tell me what to do next.
+Read https://raw.githubusercontent.com/teren-papercutlabs/pcl-workshop/master/README.md and follow the "Claude Code Instructions" section to set up a workshop project for me.
 ```
 
 That's it — copy/paste the block above into a fresh Claude Code session.
