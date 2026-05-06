@@ -11,6 +11,14 @@ The method is recognition over recall. Don't ask the participant to invent a com
 
 The output is `problem-brief.md`, which `/solutioning` uses next.
 
+## How This Will Go (tell the participant upfront)
+
+Before doing anything else, set expectations in plain English:
+
+> "I'll align on the general shape of what you're trying to do first — one or two sentences, you confirm or correct. Then I'll ask short statements to narrow down what we need to solve, and you react with agree / disagree / strongly. Once the picture is clear, I write a one-page brief and we move into design. One question at a time, no blank-page questions."
+
+This sets the texture of the conversation: react-not-articulate, beat-by-beat, statements-not-questions. Then start the procedure below.
+
 ## Rules
 
 - **Make the phase visible.** Start by saying plainly: "I'm using the workshop interview flow now."

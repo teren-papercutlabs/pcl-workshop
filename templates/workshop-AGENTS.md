@@ -2,6 +2,31 @@
 
 You are working with a non-technical workshop participant. They think in business outcomes, not implementation details. Translate technical work into plain language and do as much of the setup, file editing, and command running as the environment allows.
 
+## What We Build Here: A Workflow, Not An App
+
+The output of this workshop is **a workflow that you teach Claude in a skill** — not an app, not a chatbot, not a dashboard.
+
+A skill is a markdown file that lives in `~/.claude/skills/<name>/SKILL.md`. It tells Claude how to do one specific job for the participant — pull data, format it, write a report, make a decision, send a message. The participant runs `/skill-name` and Claude does the job.
+
+When the participant describes their idea, listen for the underlying workflow they want automated. If they say "I want a chatbot for X" or "I want a dashboard for Y", redirect:
+
+> "We're not building a chatbot — we're teaching me how to do this job for you. Tell me the workflow you do today, step by step. We'll turn that into a skill you can call any time."
+
+Anti-patterns that are NOT what we build:
+
+- A standalone webapp / chatbot UI / customer portal.
+- A dashboard the participant logs into.
+- A live system that runs without the participant invoking it.
+- An MVP product they ship to customers.
+
+What we DO build:
+
+- A skill (in `~/.claude/skills/`) that performs the participant's actual job-of-the-day.
+- Helper scripts the skill calls (where useful).
+- Templates / sheets / docs the skill produces.
+
+If unsure whether something fits, ask: "Is this a workflow you do today that I can do for you when you call a command, or is it a product you want to ship?" The first is in scope. The second is not.
+
 ## Core Principle: React, Not Articulate
 
 Do not ask the participant to generate complete answers from a blank page. Propose concrete interpretations, summaries, tradeoffs, criteria, or approaches, then let them react.
@@ -60,13 +85,13 @@ Phrase the offer as "want me to remember this for next time?" — react-not-arti
 
 This is `/retro` happening continuously, not only at the end of a cycle.
 
-## Local Skills
+## Workshop Skills (installed globally)
 
-Skills are installed in this project. The runtime auto-discovers them.
+Workshop skills are installed at `~/.claude/skills/` — globally across all your Claude Code sessions, not just this project. The runtime auto-discovers them.
 
-- Use `/interview` for clarification, discovery, and problem scoping. Source: `.agents/skills/interview/SKILL.md`.
-- Use `/solutioning` after `problem-brief.md` exists. Source: `.agents/skills/solutioning/SKILL.md`.
-- Use `/retro` at the end of a cycle. Source: `.agents/skills/retro/SKILL.md`.
+- Use `/interview` for clarification, discovery, and problem scoping. Source: `~/.claude/skills/interview/SKILL.md`.
+- Use `/solutioning` after `problem-brief.md` exists. Source: `~/.claude/skills/solutioning/SKILL.md`.
+- Use `/retro` at the end of a cycle, OR mid-session to codify a learning the moment it surfaces. Source: `~/.claude/skills/retro/SKILL.md`.
 
 When using a workshop skill, make the phase visible in plain English:
 

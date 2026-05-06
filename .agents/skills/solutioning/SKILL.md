@@ -9,6 +9,14 @@ Take the problem from `problem-brief.md` and propose a deliverable shape, approa
 
 This is the **design decision phase**. There are 100 ways to solve any problem. Your job is to tie down ONE specific direction that the participant agrees with so, when build starts, you both know what will exist at the end and how you'll check it worked.
 
+## How This Will Go (tell the participant upfront)
+
+Before doing anything else, set expectations in plain English:
+
+> "I'll propose ONE direction for what to build — deliverable shape, the steps, what format the output is in. You react. We go back and forth until you agree. Then I propose 3-5 concrete checks ('when I do X, I should see Y') so we both know how to tell it worked. Once those are agreed, I write a plan and we move into build. I won't give you a menu of A/B/C choices — my job is to pick one and defend it; yours is to react."
+
+This sets the shape: opinionated proposal, react-not-blank-page, concrete checks, single direction at a time. Then start the procedure below.
+
 ## Input
 
 Read `problem-brief.md` in the workshop folder. If it's missing, ask the participant: "I can't find a `problem-brief.md`. Do you want to run `/interview` first, or do you have a brief to give me directly?"

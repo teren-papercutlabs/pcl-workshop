@@ -5,13 +5,36 @@ description: "End-of-cycle retrospective. The agent self-critiques, participant 
 
 # Retrospective — The Improvement Loop
 
-Run this at the end of each build cycle. Goal is not reflection — it's **codification**. You're looking for things to encode so the next cycle is measurably better.
+Run this at the end of each build cycle, OR any time mid-session when a learning surfaces and we need to codify it before it slips. Goal is not reflection — it's **codification**. You're looking for things to encode so the next cycle is measurably better.
+
+## How This Will Go (tell the participant upfront)
+
+Before doing anything else, set expectations in plain English:
+
+> "I'll surface what I think went well and what I got wrong this cycle first — you react, add what I missed. Then for each item, I propose how to codify it (project rules, memory note, or a new skill) and you approve. I make the edits in front of you so you see exactly what got remembered. The output is the changed files, not a retro document."
+
+This sets the shape: agent-self-critique-first, react-not-articulate, codify-immediately. Then start the procedure below.
 
 ## The Shape: Agent Self-Critiques First
 
 Open by self-critiquing. You know your own failure modes best — surface them before the participant has to. They react, add what you missed, then you encode both.
 
 This matches the plugin's react-not-articulate principle: don't ask the participant to articulate what went wrong — you propose, they react.
+
+## Mid-Session Mode
+
+`/retro` doesn't only run at end-of-cycle. If the participant says something that sounds like a learning mid-session ("oh wait, X always means Y", "we tried Z and it didn't work because W", "actually, can you not do A in this project"), surface it on the spot:
+
+> "That sounds like something I should remember. Want me to encode it into project rules / memory / a skill now? It'll take 30 seconds and the next session will have it."
+
+If yes, run a compressed version of the procedure for that one learning:
+1. State the learning back in one sentence.
+2. Decide where it goes (project rules, MEMORY.md, or a skill).
+3. Generalise it (not "this one case" — the rule).
+4. Edit the file in front of them.
+5. Read back what you wrote.
+
+Then continue whatever the participant was doing before. Don't run the full self-critique procedure for a single mid-session learning — that's saved for end-of-cycle.
 
 ## Procedure
 
