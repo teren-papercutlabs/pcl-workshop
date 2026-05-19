@@ -18,6 +18,7 @@ The workshop loop is:
 2. **Solutioning** — propose a deliverable shape, output format, plan, and concrete checks. Output: `plan-brief.md`.
 3. **Build** — implement against the agreed plan.
 4. **Retro** — encode what was learned so the next cycle improves.
+5. **Debrief** — at workshop close, surface adoption concerns and write `final-debrief.md` for the facilitator.
 
 ## What's Inside
 
@@ -26,6 +27,7 @@ Skills (project-level, auto-discovered by the runtime when it starts in the work
 - **`/interview`** — clarification and structured discovery; writes `problem-brief.md`.
 - **`/solutioning`** — proposes deliverable shape, output format, plan, and checks; writes `plan-brief.md`.
 - **`/retro`** — end-of-cycle reflection that improves the next round.
+- **`/debrief`** — final workshop debrief that surfaces adoption concerns and writes `final-debrief.md`.
 
 Reference techniques (read on demand):
 
@@ -45,7 +47,8 @@ pcl-workshop/
 ├── .agents/skills/           ← canonical skill source (codex auto-discovers from project root)
 │   ├── interview/SKILL.md
 │   ├── solutioning/SKILL.md
-│   └── retro/SKILL.md
+│   ├── retro/SKILL.md
+│   └── debrief/SKILL.md
 ├── techniques/
 │   ├── accuracy.md
 │   ├── no-api-workflows.md
@@ -108,7 +111,7 @@ rm -rf /tmp/pcl-workshop-src
 ls -la AGENTS.md .agents/skills techniques
 ```
 
-Expected: `AGENTS.md` exists, `.agents/skills/` contains `interview/`, `solutioning/`, `retro/`, and `techniques/` contains three `.md` files.
+Expected: `AGENTS.md` exists, `.agents/skills/` contains `interview/`, `solutioning/`, `retro/`, `debrief/`, and `techniques/` contains three `.md` files.
 
 ### 6. Tell the participant what's next
 
@@ -179,7 +182,7 @@ rm -rf /tmp/pcl-workshop-src
 ls -la CLAUDE.md techniques ~/.claude/skills
 ```
 
-Expected: `CLAUDE.md` exists in this folder, `techniques/` contains three `.md` files, `~/.claude/skills/` contains `interview/`, `solutioning/`, `retro/`.
+Expected: `CLAUDE.md` exists in this folder, `techniques/` contains three `.md` files, `~/.claude/skills/` contains `interview/`, `solutioning/`, `retro/`, `debrief/`.
 
 ### 6. Tell the participant what's next
 
