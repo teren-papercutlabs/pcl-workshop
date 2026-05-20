@@ -15,7 +15,7 @@ The output is `problem-brief.md`, which `/solutioning` uses next.
 
 Before doing anything else, set expectations in plain English:
 
-> "I'll align on the general shape of what you're trying to do first — one or two sentences, you confirm or correct. Then I'll ask short statements to narrow down what we need to solve, and you react with agree / disagree / strongly. Once the picture is clear, I write a one-page brief and we move into design. One question at a time, no blank-page questions."
+> "I'll align on the general shape of what you're trying to do first — one or two sentences, you confirm or correct. Then I'll ask short statements to narrow down what we need to solve, and you react with one of four: **strongly disagree**, **disagree**, **agree**, or **strongly agree**. Once the picture is clear, I write a one-page brief and we move into design. One question at a time, no blank-page questions."
 
 This sets the texture of the conversation: react-not-articulate, beat-by-beat, statements-not-questions. Then start the procedure below.
 
@@ -63,12 +63,7 @@ Default to outcome. Pull down into shape and specifics only after the outcome is
 
 Use one of two modes:
 
-- **Mode B (default)**: one statement at a time. Participant reacts on a 4-point scale:
-  - **SD** — strongly disagree
-  - **D** — disagree
-  - **A** — agree
-  - **SA** — strongly agree
-  Deeper signal per statement. Summarise the signal after each response before the next statement.
+- **Mode B (default)**: one statement at a time. Ask the participant to react with one of four reactions, **always stated in full words** when prompting: **strongly disagree** · **disagree** · **agree** · **strongly agree**. Do NOT use abbreviations (SD/D/A/SA) when prompting the participant — they don't know what those mean unless told. Internally (for your own tracking) you can shorthand, but every prompt to the participant uses the full words. Deeper signal per statement. Summarise the signal after each response before the next statement.
 
 - **Mode A**: 4 mutually exclusive statements, participant picks the one that resonates most. Use only when narrowing between known alternatives, not when exploring.
 
@@ -153,3 +148,4 @@ Anti and trade-off statements often produce the sharpest signal. When you don't 
 - Don't propose 5+ statements at once. Mode B is one-at-a-time for a reason; each reaction should sharpen the next statement.
 - Don't pad with "great signal!" / "interesting!" between statements. Summarise the signal in one line, propose the next statement.
 - Don't converge prematurely. If reactions are still mixed at statement 4, keep going. Convergence is what you're listening for, not what you should fabricate.
+- Don't use SD/D/A/SA abbreviations when prompting the participant. State the full scale (strongly disagree / disagree / agree / strongly agree) explicitly the first time a reaction is asked, and use full words on every subsequent prompt.
