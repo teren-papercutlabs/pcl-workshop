@@ -3,15 +3,15 @@ name: retro
 description: "End-of-cycle retrospective. The agent self-critiques, participant reacts, encode learnings into AGENTS.md and MEMORY.md immediately. Trigger for: /retro, retrospective, wrap up, what did we learn, end of cycle."
 ---
 
-# Retrospective — The Improvement Loop
+# Retrospective — The Codification Loop
 
-Run this at the end of each build cycle, OR any time mid-session when a learning surfaces and we need to codify it before it slips. Goal is not reflection — it's **codification**. You're looking for things to encode so the next cycle is measurably better.
+Run this at the end of each build cycle, OR any time mid-session when something worth keeping surfaces and we need to codify it before it slips. Goal is not reflection — it's **codification**. You're codifying two kinds of thing: **improvements** (what to do differently so the next cycle is better) AND **facts** (what's now true about this project that you should remember). A fact with nothing "wrong" attached still gets codified — "the data refreshes every Monday" is worth banking even though nobody made a mistake.
 
 ## How This Will Go (tell the participant upfront)
 
 Before doing anything else, set expectations in plain English:
 
-> "I'll surface what I think went well and what I got wrong this cycle first — you react, add what I missed. Then for each item, I propose how to codify it (project rules, memory note, or a new skill) and you approve. I make the edits in front of you so you see exactly what got remembered. The output is the changed files, not a retro document."
+> "I'll surface what I think went well and what I got wrong this cycle, plus any facts I picked up about your project or domain — even ones that aren't about something going wrong. You react, add what I missed. Then for each item, I propose how to codify it (project rules, memory note, or a new skill) and you approve. I make the edits in front of you so you see exactly what got remembered. The output is the changed files, not a retro document."
 
 This sets the shape: agent-self-critique-first, react-not-articulate, codify-immediately. Then start the procedure below.
 
@@ -50,6 +50,11 @@ Look back across the cycle. Output a concrete self-critique in two short lists:
 - Specific things that went smoothly and should be reinforced.
 - "Running the checks as a literal test-run at the end caught the cancelled-orders bug."
 
+**What I learned (facts worth remembering):**
+- Facts about the project, domain, data, or the people that surfaced this cycle — even when nothing went wrong. These aren't mistakes or wins; they're just true now, and the next cycle should know them.
+- "The warehouse does a stock-count every Monday, so Monday numbers are unreliable." "The participant's real job is operations, not sales — they care about throughput, not revenue." "Their Shopify is on the 2024-10 API version."
+- This is the list people forget. If you only hunt for mistakes, the facts you picked up along the way never get written down. Scan for them deliberately.
+
 Keep each list to 3–5 items. Don't pad.
 
 ### 2. Let the participant react
@@ -71,7 +76,7 @@ For each item (yours + theirs), ask:
 → Goes into the project rules file (`AGENTS.md` on Codex, `CLAUDE.md` on Claude Code). Constraints, preferences, domain knowledge, working style. If you had to be told something you should have known, that's a project-rules gap.
 
 **Was there a fact about this project I should remember?**
-→ Goes into `MEMORY.md`. Things like: "The Shopify tenant is on the 2024-10 API version"; "Tuesday report lands in Sheet tab 'Weekly Stock'"; "We tried approach X and it failed because Y". Historical / factual context that future cycles need.
+→ Goes into `MEMORY.md`. This fires **even when nothing went wrong** — a fact you picked up is worth banking regardless of whether it's tied to a mistake. Things like: "The Shopify tenant is on the 2024-10 API version"; "Tuesday report lands in Sheet tab 'Weekly Stock'"; "The participant handles 3 warehouses, not 1"; "We tried approach X and it failed because Y". Historical / factual context that future cycles need.
 
 **Was there a repeatable procedure?**
 → If it's something you'll do again in this project, write a project-scoped skill or macro.
@@ -133,5 +138,6 @@ The changed files are the real output, not the summary.
 ## Do Not
 
 - Do not skip the self-critique step. If you've genuinely got nothing, say so explicitly ("No specific mistakes this cycle — it was tight") so the participant can react with "actually, you missed X".
+- Do not skip the fact-scan. Facts you picked up this cycle that aren't tied to a mistake are the ones most likely to be lost — if you only look for what went wrong, they never get written down. Scan for "what's now true that I didn't know before" as deliberately as you scan for mistakes.
 - Do not write a retro document as the output. The codified changes to `AGENTS.md` / `MEMORY.md` ARE the output. No standalone retro-notes file.
 - Do not retroactively praise the participant or yourself. Retro is for encoding, not morale.
