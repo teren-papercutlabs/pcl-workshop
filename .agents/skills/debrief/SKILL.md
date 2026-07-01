@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Final Workshop Debrief
 
-Use this once at the end of the workshop. This is the backstop after the facilitator's in-room rotation: uncover what the participant actually believes about using Claude Code tomorrow, especially concerns they would not volunteer to "any feedback?".
+Use this once at the end of the workshop. This is the backstop after the facilitator's in-room rotation: uncover what the participant actually believes about using Claude tomorrow, especially concerns they would not volunteer to "any feedback?".
 
 The output is `final-debrief.md`. Do not send it anywhere. The participant can share the file with Teren or the facilitator through the agreed channel.
 
@@ -23,7 +23,7 @@ Then proceed one beat at a time.
 - **End-fire only.** Run this at workshop close, not during build work.
 - **React, not articulate.** Do not ask blank-page questions like "any feedback?" or "how confident are you?" Make concrete observations and let the participant agree, disagree, or correct.
 - **One reflection beat at a time.** If you see several concerns, choose the most adoption-relevant one first and hold the others. Do not list multiple soft spots before the participant reacts. Do not ask two questions in the same turn.
-- **Infer confidence from behavior.** Look at what they actually built, what they kept in `CLAUDE.md`, what became a skill, whether they ran `/retro`, how much of the work can realistically start in Claude Code tomorrow, and where human review is still required.
+- **Infer confidence from behavior.** Look at what they actually built, what they kept in `CLAUDE.md`, what became a skill, whether they ran `/retro`, how much of the work and context are captured in `CLAUDE.md`, how much can realistically start in Claude tomorrow, and where human review is still required.
 - **Use indirect confidence questions.** Ask about tomorrow's first blocker, the point where they would revert to the old way, whether they can get past the 80% bar for this kind of work, and what would make them quietly stop using it.
 - **Follow the participant's signal.** Known anchors are feedback, concerns, confidence, adoption depth, `/retro`, and stored instructions or skills. They are starting points, not a fixed questionnaire.
 - **Separate facts from inference.** In the output, clearly distinguish what the participant said, what the files show, and what you infer.
@@ -36,10 +36,10 @@ Then proceed one beat at a time.
 
 Look for the real workshop outputs before asking questions:
 
-- Project rules: `CLAUDE.md` in Claude Code, or `AGENTS.md` if this was a Codex workshop.
+- Workshop memory and rules: `CLAUDE.md`.
 - Briefs: `problem-brief.md`, `plan-brief.md`.
-- Built workflow: project skill folders, named output files, helper scripts, templates, sheets, documents, or other files referenced in the briefs.
-- Learning capture: `MEMORY.md` or notes the participant asked you to remember.
+- Built workflow: project skills, named output files, helper files, templates, sheets, documents, or other files referenced in the briefs.
+- Learning capture: future-useful facts, preferences, decisions, and workflow notes written into `CLAUDE.md`.
 
 If the built workflow is in `~/.claude/skills/`, infer the skill name from the briefs first and inspect only that skill folder. Do not list all global skills. If you cannot tell which skill came from this workshop, ask one short question: "Which skill did we build today?"
 

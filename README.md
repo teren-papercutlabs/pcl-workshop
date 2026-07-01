@@ -1,176 +1,126 @@
 # pcl-workshop
 
-Papercut Labs workshop scaffolding for non-technical participants using Codex or Claude Code.
+Papercut Labs workshop scaffolding for non-technical participants using the Claude desktop app.
 
 ## For workshop participants — paste this to start
 
-Open Claude Code in any folder, then paste this prompt. Claude reads this README and does the rest.
+1. Open the Claude desktop app.
+2. Start a new session.
+3. Select this folder: `~/Documents/projects/workshop/pcl-workshop`.
+4. Paste this prompt:
 
-```
-Read https://raw.githubusercontent.com/teren-papercutlabs/pcl-workshop/master/README.md and follow the "Claude Code Instructions" section to set up a workshop project for me.
+```text
+Read https://raw.githubusercontent.com/teren-papercutlabs/pcl-workshop/master/README.md and follow the "Claude desktop app setup" section to set up a workshop project for me.
 ```
 
-That's it — copy/paste the block above into a fresh Claude Code session.
+If that folder does not exist yet, start from any folder, paste the prompt, and Claude will create the workshop folder for you. Then it will ask you to start a new session and select the workshop folder.
 
 The workshop loop is:
 
 1. **Interview** — clarify the problem by reacting to concrete statements and short questions. Output: `problem-brief.md`.
-2. **Solutioning** — propose a deliverable shape, output format, plan, and concrete checks. Output: `plan-brief.md`.
-3. **Build** — implement against the agreed plan.
-4. **Retro** — encode what was learned so the next cycle improves.
+2. **Solutioning** — propose a useful deliverable, output format, plan, and concrete checks. Output: `plan-brief.md`.
+3. **Build** — make the thing described in the plan.
+4. **Retro** — reflect, capture your point of view, and write future-useful context into `CLAUDE.md`.
 5. **Debrief** — at workshop close, surface adoption concerns and write `final-debrief.md` for the facilitator.
 
-## What's Inside
+## What's inside
 
-Skills (project-level, auto-discovered by the runtime when it starts in the workshop folder):
+- `CLAUDE.md` — the project instructions and workshop memory. This is the single home for workshop rules, techniques, business context, and future-session notes.
+- `.agents/skills/` — the skill source copied into Claude's global skills folder during setup:
+  - `/interview`
+  - `/solutioning`
+  - `/retro`
+  - `/debrief`
 
-- **`/interview`** — clarification and structured discovery; writes `problem-brief.md`.
-- **`/solutioning`** — proposes deliverable shape, output format, plan, and checks; writes `plan-brief.md`.
-- **`/retro`** — end-of-cycle reflection that improves the next round.
-- **`/debrief`** — final workshop debrief that surfaces adoption concerns and writes `final-debrief.md`.
+## Repo layout
 
-Reference techniques (read on demand):
-
-- `techniques/no-api-workflows.md` — working with platforms that have no usable API.
-- `techniques/accuracy.md` — keeping output reliable.
-- `techniques/parallel-subagents.md` — parallelising independent work.
-
-Project AGENTS.md:
-
-- `templates/workshop-AGENTS.md` — the canonical project-level rules. Bootstrap copies this to `AGENTS.md` at the participant's project root.
-
-## Repo Layout
-
-```
+```text
 pcl-workshop/
-├── README.md                 ← this file (read by the bootstrap agent)
-├── .agents/skills/           ← canonical skill source (codex auto-discovers from project root)
-│   ├── interview/SKILL.md
-│   ├── solutioning/SKILL.md
-│   ├── retro/SKILL.md
-│   └── debrief/SKILL.md
-├── techniques/
-│   ├── accuracy.md
-│   ├── no-api-workflows.md
-│   └── parallel-subagents.md
-└── templates/
-    └── workshop-AGENTS.md    ← copied to <project>/AGENTS.md during bootstrap
+├── README.md                 ← setup instructions read by Claude
+├── CLAUDE.md                 ← copied into the participant's workshop folder
+└── .agents/skills/           ← copied into Claude's global skills folder
+    ├── interview/SKILL.md
+    ├── solutioning/SKILL.md
+    ├── retro/SKILL.md
+    └── debrief/SKILL.md
 ```
 
-The repo mirrors the deployed project structure. Bootstrap clones the repo and copies the relevant pieces into the participant's project folder.
+The participant's workshop folder should end up at:
 
-## Codex Instructions
+```text
+~/Documents/projects/workshop/pcl-workshop
+```
 
-If you are an agent reading this README to bootstrap a workshop project for a participant:
+## Claude desktop app setup
 
-You are setting up a workshop project at the current working directory. The cwd should be `~/Desktop/projects/pcl-workshop/` (or whatever empty project folder the participant created and opened Codex in).
+If you are Claude reading this README to set up a workshop project for a participant, follow this section.
 
-Run these steps in order. Narrate each step plainly to the participant as you go.
+### 1. Check the folder
 
-### 1. Confirm location
-
-Print the cwd and confirm:
+Run:
 
 ```bash
 pwd
 ```
 
-Tell the participant in plain English: "I'll set up the workshop here: `<pwd>`. This writes an `AGENTS.md`, a `.agents/skills/` directory, and a `techniques/` directory into this folder."
+The workshop folder must be:
 
-If the cwd is not what was intended, ask the participant to close Codex and reopen it from the right folder. Do not `cd` to a different folder mid-bootstrap — Codex's project context is bound to the folder it was started in.
+```text
+~/Documents/projects/workshop/pcl-workshop
+```
+
+If the current folder is anything else, do **not** install here. Create the workshop folder:
+
+```bash
+mkdir -p ~/Documents/projects/workshop/pcl-workshop
+```
+
+Then tell the participant, in plain English:
+
+> "I created the workshop folder at `~/Documents/projects/workshop/pcl-workshop`. Start a new session in the Claude desktop app, select that folder, paste the setup prompt again, and I'll install the workshop tools there."
+
+Then **stop**. Do not continue installing in the wrong folder.
+
+If the current folder is already `~/Documents/projects/workshop/pcl-workshop`, continue.
 
 ### 2. Fetch the workshop kit
+
+Run:
 
 ```bash
 git clone --depth 1 https://github.com/teren-papercutlabs/pcl-workshop.git /tmp/pcl-workshop-src
 ```
 
-If `git clone` fails (no network, no git), fall back to `curl`:
+If that fails because git or the network is unavailable, try this fallback:
 
 ```bash
 curl -fsSL https://github.com/teren-papercutlabs/pcl-workshop/archive/refs/heads/master.tar.gz | tar -xzC /tmp && mv /tmp/pcl-workshop-master /tmp/pcl-workshop-src
 ```
 
-### 3. Install the project files
+### 3. Install the files
 
-```bash
-cp /tmp/pcl-workshop-src/templates/workshop-AGENTS.md ./AGENTS.md
-cp -r /tmp/pcl-workshop-src/.agents ./
-cp -r /tmp/pcl-workshop-src/techniques ./
-```
+Skills install globally so Claude can use `/interview`, `/solutioning`, `/retro`, and `/debrief` from the workshop session. `CLAUDE.md` installs into the workshop folder and becomes the session memory.
 
-### 4. Clean up
-
-```bash
-rm -rf /tmp/pcl-workshop-src
-```
-
-### 5. Verify the install
-
-```bash
-ls -la AGENTS.md .agents/skills techniques
-```
-
-Expected: `AGENTS.md` exists, `.agents/skills/` contains `interview/`, `solutioning/`, `retro/`, `debrief/`, and `techniques/` contains three `.md` files.
-
-### 6. Tell the participant what's next
-
-Tell them in plain English:
-
-> "Workshop folder is ready. To pick up the new skills and project rules, start a fresh Codex thread in this folder (or restart Codex). When the new thread is open, tell me what you want to work on and I'll use `/interview` to walk you through it."
-
-Then **stop**. Do not auto-fire `/interview`. The participant needs to start a new thread first so Codex picks up `AGENTS.md` and the skills.
-
-## Claude Code Instructions
-
-If you are Claude Code reading this README to bootstrap a workshop project for a participant:
-
-### 1. Check the location first
-
-```bash
-pwd
-```
-
-If the cwd is the participant's home directory (`$HOME`, e.g. `/Users/<name>`) or root (`/`), DO NOT install. Instead:
-
-```bash
-mkdir -p ~/Desktop/projects/pcl-workshop
-```
-
-(Adjust the folder name if context suggests a more specific one — e.g. `~/Desktop/projects/<their-business-or-topic>`.)
-
-Then tell the participant in plain English:
-
-> "I created a folder for this workshop at `~/Desktop/projects/pcl-workshop`. Quit this Claude Code session, open a new one in that folder (`cd ~/Desktop/projects/pcl-workshop && claude`), and paste the bootstrap prompt again. Then I can install the workshop tools."
-
-Then **stop**. Do not continue installing — the install needs to happen in a fresh session bound to the new folder.
-
-If the cwd is already a project folder (anything other than home/root), continue.
-
-### 2. Fetch the workshop kit
-
-```bash
-git clone --depth 1 https://github.com/teren-papercutlabs/pcl-workshop.git /tmp/pcl-workshop-src
-```
-
-Fallback if `git clone` fails:
-
-```bash
-curl -fsSL https://github.com/teren-papercutlabs/pcl-workshop/archive/refs/heads/master.tar.gz | tar -xzC /tmp && mv /tmp/pcl-workshop-master /tmp/pcl-workshop-src
-```
-
-### 3. Install — skills global, project rules + techniques local
-
-Skills install to `~/.claude/skills/` (global, available across all your CC sessions). Project rules and techniques install to the current folder.
+First install the skills:
 
 ```bash
 mkdir -p ~/.claude/skills
 cp -r /tmp/pcl-workshop-src/.agents/skills/* ~/.claude/skills/
-cp /tmp/pcl-workshop-src/templates/workshop-AGENTS.md ./CLAUDE.md
-cp -r /tmp/pcl-workshop-src/techniques ./
 ```
 
+Then install the workshop memory file. If `./CLAUDE.md` already exists, do not overwrite it silently. Tell the participant you found an existing project memory file and ask whether to replace it or merge the workshop instructions into it.
+
+If there is no existing `CLAUDE.md`, run:
+
+```bash
+cp /tmp/pcl-workshop-src/CLAUDE.md ./CLAUDE.md
+```
+
+If the participant chooses to merge instead of replace, preserve their existing notes and add the workshop sections from `/tmp/pcl-workshop-src/CLAUDE.md`.
+
 ### 4. Clean up
+
+Run:
 
 ```bash
 rm -rf /tmp/pcl-workshop-src
@@ -178,58 +128,37 @@ rm -rf /tmp/pcl-workshop-src
 
 ### 5. Verify
 
+Run:
+
 ```bash
-ls -la CLAUDE.md techniques ~/.claude/skills
+ls -la CLAUDE.md ~/.claude/skills
 ```
 
-Expected: `CLAUDE.md` exists in this folder, `techniques/` contains three `.md` files, `~/.claude/skills/` contains `interview/`, `solutioning/`, `retro/`, `debrief/`.
+Expected:
+
+- `CLAUDE.md` exists in the workshop folder.
+- `~/.claude/skills/` contains `interview/`, `solutioning/`, `retro/`, and `debrief/`.
 
 ### 6. Tell the participant what's next
 
 Tell them in plain English:
 
-> "Workshop folder is ready. Skills are installed globally so they'll work in any Claude Code session you start. To pick up the new `CLAUDE.md` for this project, start a fresh Claude Code session in this folder. Then tell me what you want to work on and I'll use `/interview` to walk you through it."
+> "Workshop folder is ready. Start a new session in the Claude desktop app and select `~/Documents/projects/workshop/pcl-workshop` so Claude picks up the workshop memory. Then tell me what you want to work on and I'll use `/interview` to walk through it."
 
-Then **stop**. Do not auto-fire `/interview`. The participant needs a fresh session so Claude picks up the local `CLAUDE.md`.
-
-## Manual Setup (No Agent)
-
-If a participant prefers to set up the folder by hand:
-
-```bash
-mkdir -p ~/Desktop/projects/pcl-workshop
-cd ~/Desktop/projects/pcl-workshop
-git clone --depth 1 https://github.com/teren-papercutlabs/pcl-workshop.git /tmp/pcl-workshop-src
-cp /tmp/pcl-workshop-src/templates/workshop-AGENTS.md ./AGENTS.md
-cp -r /tmp/pcl-workshop-src/.agents ./
-cp -r /tmp/pcl-workshop-src/techniques ./
-rm -rf /tmp/pcl-workshop-src
-```
-
-Then open Codex in that folder and start a thread.
-
-## Windows Note
-
-On Windows, use Git Bash rather than PowerShell or Command Prompt. The bootstrap commands assume bash-style paths and quoting.
-
-If Git Bash is missing, install it from <https://gitforwindows.org/>.
+Then **stop**. Do not auto-fire `/interview`. The participant needs a fresh session so Claude reads the local `CLAUDE.md`.
 
 ## Troubleshooting
 
-**Skills don't appear after bootstrap**
+**Skills do not appear after setup**
 
-Skills load at session start. Start a new Codex thread in the workshop folder so it re-reads `.agents/skills/`.
+Start a new session in the Claude desktop app and select the workshop folder. Skills and project instructions are picked up when the session starts.
 
-**`AGENTS.md` not picked up**
+**`CLAUDE.md` does not seem to be used**
 
-Same fix — start a new thread. Codex reads `AGENTS.md` at session start.
+Start a new session in the Claude desktop app and select `~/Documents/projects/workshop/pcl-workshop`.
 
-**`git clone` fails**
+**Fetching the workshop kit fails**
 
-Try the GitHub CLI:
+Tell the participant:
 
-```bash
-gh repo clone teren-papercutlabs/pcl-workshop /tmp/pcl-workshop-src
-```
-
-Or download the ZIP from <https://github.com/teren-papercutlabs/pcl-workshop>, unzip it to `/tmp/pcl-workshop-src`, and continue from step 3.
+> "I could not download the workshop kit from GitHub. Please ask the facilitator for help with the workshop setup."
