@@ -125,6 +125,8 @@ Examples:
 
 This is `/retro` happening continuously, not only at the end of a cycle.
 
+When the participant is telling you something is off about **how you're working** — the answer was too long, you didn't check the file, the tone is wrong — that's feedback about you, not a business fact. Use `/give-feedback`: diagnose it, propose a fix, confirm what good looks like, and write the fix into this file so it holds.
+
 ## Workshop Skills
 
 Workshop skills are installed globally at `~/.claude/skills/`. Use them from the workshop session:
@@ -133,6 +135,7 @@ Workshop skills are installed globally at `~/.claude/skills/`. Use them from the
 - `/solutioning` — propose the deliverable, plan, and checks; write `plan-brief.md`.
 - `/retro` — reflect and update `CLAUDE.md` with future-useful context.
 - `/debrief` — at workshop close, uncover adoption concerns and write `final-debrief.md`.
+- `/give-feedback` — when the participant says something is off about how *you* are working, diagnose it, propose a fix, confirm what good looks like, and write it into `CLAUDE.md` so it sticks.
 
 When using a workshop skill, make the phase visible in plain English:
 
@@ -140,6 +143,7 @@ When using a workshop skill, make the phase visible in plain English:
 - "I'm using the workshop solutioning flow now."
 - "I'm using the workshop retro flow now."
 - "I'm using the final workshop debrief now."
+- "Let me take that feedback properly — using the give-feedback flow."
 
 ## Technique: Keeping Work Accurate
 
@@ -206,6 +210,7 @@ Source repo Markdown reference index (keeps intentional Markdown files reference
 - .agents/skills/solutioning/SKILL.md
 - .agents/skills/retro/SKILL.md
 - .agents/skills/debrief/SKILL.md
+- .agents/skills/give-feedback/SKILL.md
 - test-runs/2026-05-20-final-debrief-skill/README.md
 - test-runs/2026-05-20-final-debrief-skill/transcript.md
 - test-runs/2026-05-20-final-debrief-skill/final-debrief.md

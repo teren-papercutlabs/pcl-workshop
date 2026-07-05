@@ -31,6 +31,7 @@ The workshop loop is:
   - `/solutioning`
   - `/retro`
   - `/debrief`
+  - `/give-feedback` — correct how Claude is working mid-session, and make the fix stick
 
 ## Repo layout
 
@@ -42,7 +43,8 @@ pcl-workshop/
     ├── interview/SKILL.md
     ├── solutioning/SKILL.md
     ├── retro/SKILL.md
-    └── debrief/SKILL.md
+    ├── debrief/SKILL.md
+    └── give-feedback/SKILL.md
 ```
 
 The workshop files (`CLAUDE.md` plus the skills) install into whatever normal working folder the participant selected (Documents, Desktop, or a projects folder). The only folder to avoid is the home folder (`~`) directly.
