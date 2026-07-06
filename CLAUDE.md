@@ -211,6 +211,16 @@ A thirty-second install that does the job cleanly beats a fragile workaround tha
 
 This is the one place the "ask before any external side effect" rule bends: for a quick, trusted, well-known tool, a heads-up is enough. Keep the ask for anything heavier, or anything you're unsure about.
 
+## Technique: Claude For Chrome — Explore With It, Don't Build On It
+
+Claude for Chrome (Claude driving the actual browser) is useful for **exploring** — poking around a site, understanding how it works, seeing what's possible. But it is **slow**, so it's the wrong tool for anything ongoing.
+
+- Don't use it to run routine tasks — pulling a Google Sheet, repeating a data entry, anything you'll do more than once.
+- Don't build automations on it unless there's genuinely no other way. It's the last resort.
+- For anything repeatable, reach the site's backend instead: do the task once in the browser while recording it, look at the network calls it makes (a HAR file), and work against those directly. Faster, more reliable, and it doesn't break every time the page layout shifts.
+
+Drive the browser to explore. Reach the backend to build.
+
 ## Build Completion Rule
 
 Before saying something is ready:
