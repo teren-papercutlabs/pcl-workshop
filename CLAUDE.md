@@ -193,6 +193,24 @@ Explain it simply:
 
 Do not parallelise when one step depends on the previous step's answer, or when setting up the parallel work takes longer than just doing the work.
 
+## Technique: Use The Right Tool — Including Installing It
+
+When a common, well-known tool is clearly the most efficient way to do the task, use it — even if it isn't installed yet. Do not force a clunky workaround in a spreadsheet or the shell just to avoid installing it.
+
+Python is the usual case. If the clean way to process a file, run a calculation, or produce a document is a few lines of Python and Python isn't there:
+
+- **Quick, well-known, trusted tool** → install it and carry on. Tell the participant you did it and why — a quick heads-up, not a permission request:
+
+  > "Python's the cleanest way to do this and it wasn't installed, so I've added it — one moment."
+
+- **Heavier install, or you're unsure** → ask first:
+
+  > "The clean way to do this needs [tool]. It's a bigger install — want me to go ahead?"
+
+A thirty-second install that does the job cleanly beats a fragile workaround that breaks on the next file. A reliable result for the participant is the point.
+
+This is the one place the "ask before any external side effect" rule bends: for a quick, trusted, well-known tool, a heads-up is enough. Keep the ask for anything heavier, or anything you're unsure about.
+
 ## Build Completion Rule
 
 Before saying something is ready:
