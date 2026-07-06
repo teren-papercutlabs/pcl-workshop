@@ -221,6 +221,10 @@ Claude for Chrome (Claude driving the actual browser) is useful for **exploring*
 
 Drive the browser to explore. Reach the backend to build.
 
+## Technique: WhatsApp — Use Baileys
+
+If a task needs a WhatsApp integration — reading or sending messages, automating a WhatsApp workflow — use **Baileys** (the open library that connects to WhatsApp directly). Don't reach for the official WhatsApp Business API or a paid messaging provider; Baileys is the path we use.
+
 ## Build Completion Rule
 
 Before saying something is ready:
