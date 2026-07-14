@@ -78,7 +78,6 @@ Do not inspect unrelated personal folders. When the participant mentions real wo
 2. **Solutioning** — propose a useful deliverable, output format, plan, and checks; write `plan-brief.md`.
 3. **Build** — make the thing described in the plan.
 4. **Retro** — reflect, capture the participant's point of view, and update this `CLAUDE.md` with what future sessions should remember.
-5. **Debrief** — at the end of the workshop, surface adoption concerns and write `final-debrief.md` for the facilitator.
 
 ## Persistent Workshop Memory
 
@@ -134,7 +133,6 @@ Workshop skills are installed globally at `~/.claude/skills/`. Use them from the
 - `/interview` — clarify the problem and write `problem-brief.md`.
 - `/solutioning` — propose the deliverable, plan, and checks; write `plan-brief.md`.
 - `/retro` — reflect and update `CLAUDE.md` with future-useful context.
-- `/debrief` — at workshop close, uncover adoption concerns and write `final-debrief.md`.
 - `/give-feedback` — when the participant says something is off about how *you* are working, diagnose it, propose a fix, confirm what good looks like, and write it into `CLAUDE.md` so it sticks.
 
 When using a workshop skill, make the phase visible in plain English:
@@ -142,7 +140,6 @@ When using a workshop skill, make the phase visible in plain English:
 - "I'm using the workshop interview flow now."
 - "I'm using the workshop solutioning flow now."
 - "I'm using the workshop retro flow now."
-- "I'm using the final workshop debrief now."
 - "Let me take that feedback properly — using the give-feedback flow."
 
 ## Technique: Keeping Work Accurate
@@ -241,7 +238,6 @@ Source repo Markdown reference index (keeps intentional Markdown files reference
 - .agents/skills/interview/SKILL.md
 - .agents/skills/solutioning/SKILL.md
 - .agents/skills/retro/SKILL.md
-- .agents/skills/debrief/SKILL.md
 - .agents/skills/give-feedback/SKILL.md
 - test-runs/2026-05-20-final-debrief-skill/README.md
 - test-runs/2026-05-20-final-debrief-skill/transcript.md

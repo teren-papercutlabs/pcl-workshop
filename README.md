@@ -21,7 +21,6 @@ The workshop loop is:
 2. **Solutioning** — propose a useful deliverable, output format, plan, and concrete checks. Output: `plan-brief.md`.
 3. **Build** — make the thing described in the plan.
 4. **Retro** — reflect, capture your point of view, and write future-useful context into `CLAUDE.md`.
-5. **Debrief** — at workshop close, surface adoption concerns and write `final-debrief.md` for the facilitator.
 
 ## What's inside
 
@@ -30,7 +29,6 @@ The workshop loop is:
   - `/interview`
   - `/solutioning`
   - `/retro`
-  - `/debrief`
   - `/give-feedback` — correct how Claude is working mid-session, and make the fix stick
 
 ## Repo layout
@@ -43,7 +41,6 @@ pcl-workshop/
     ├── interview/SKILL.md
     ├── solutioning/SKILL.md
     ├── retro/SKILL.md
-    ├── debrief/SKILL.md
     └── give-feedback/SKILL.md
 ```
 
@@ -91,7 +88,7 @@ curl -fsSL https://github.com/teren-papercutlabs/pcl-workshop/archive/refs/heads
 
 ### 3. Install the files
 
-Skills install globally so Claude can use `/interview`, `/solutioning`, `/retro`, and `/debrief` from the workshop session. `CLAUDE.md` installs into the workshop folder and becomes the session memory.
+Skills install globally so Claude can use `/interview`, `/solutioning`, and `/retro` from the workshop session. `CLAUDE.md` installs into the workshop folder and becomes the session memory.
 
 First install the skills:
 
@@ -129,7 +126,7 @@ ls -la CLAUDE.md ~/.claude/skills
 Expected:
 
 - `CLAUDE.md` exists in the workshop folder.
-- `~/.claude/skills/` contains `interview/`, `solutioning/`, `retro/`, and `debrief/`.
+- `~/.claude/skills/` contains `interview/`, `solutioning/`, and `retro/`.
 
 ### 6. Tell the participant what's next
 
